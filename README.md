@@ -58,6 +58,7 @@ The timing of every frozen document, and what was known when each was frozen, is
 | `s24_amendment10_exploratory_ER-all508.py` | Post hoc exploratory rerun of s23 with the ER field recorded for all 508 samples (one-line change) | Results: independent cohorts (exploratory) |
 | `posthoc/ph1_scale_check.py` | Post hoc (Error Log 5): observed optima as percentiles of the luminal set; resampling slope in score units and the slope of a fixed cut-off (P1, P2) | Results; Table 2; Online Resource 4, Table S22 |
 | `posthoc/ph2_score_units_P3.py` | Post hoc (Error Log 5): the same for P3 and for GSE81538, using the Amendment 8 scoring functions unchanged | Results; Online Resource 4, Table S22 |
+| `s25_prisma_flow.py` | PRISMA 2020 flow diagram for the literature component (Fig. S-L1); counts taken from the search and citation-search logs | Online Resource 3 |
 
 Scripts marked exploratory or post hoc were not pre-specified and are labeled as such in the manuscript.
 
