@@ -1,0 +1,48 @@
+PROTOCOL AMENDMENT 4  -  POOLED ESTIMATE FOR C1 AND SCAN-B ADJUSTMENT SET  -  FROZEN
+Frozen: 2026-10-13 16:05 UTC+2.
+State at freeze: SCAN-B clinical metadata parsed (cohort size and total event count known).
+SCAN-B expression file NOT received; no SCAN-B patient has been assigned to any group;
+no SCAN-B outcome has been compared between groups.
+Author: Abdelmuhsen M. Abusneina
+
+1. WHY
+   SCAN-B has 217 overall-survival events in 2,425 ER+/HER2- patients. The C1b contrast
+   (STABLE_B vs DISCORDANT) is expected to rest on roughly 100 events, giving a 95% CI of
+   about the width of the equivalence margin. A single-cohort C1b result is therefore likely
+   to be inconclusive. A pooled estimate is pre-specified here, before groups exist in SCAN-B.
+
+2. DISCLOSED PRIOR KNOWLEDGE
+   The METABRIC inputs to the pooled estimate are already known (Amendment 2, D1):
+     HR(STABLE_B vs DISCORDANT): P2 1.23 [0.92, 1.63]; P1 1.02 [0.76, 1.37]
+     HR(STABLE_A vs DISCORDANT): P2 0.66 [0.50, 0.86]; P1 0.57 [0.43, 0.75]
+   The only new information entering the pooled estimate is the SCAN-B result.
+
+3. POOLED ANALYSIS
+   Primary pooled set: METABRIC + SCAN-B.
+   Method: inverse-variance fixed-effect pooling of adjusted log hazard ratios, one estimate
+   per cohort, for C1a (STABLE_A vs DISCORDANT) and C1b (STABLE_B vs DISCORDANT), P2 primary,
+   P1 reported alongside.
+   Sensitivity: DerSimonian-Laird random effects with I-squared; and a three-cohort pool
+   adding TCGA.
+   Decision rule for pooled C1b is identical to Amendment 3: CI inside [0.67, 1.50] ->
+   "B-like confirmed"; CI includes 1 but exceeds the margin -> "inconclusive"; CI excludes 1
+   -> "refuted".
+
+4. STATUS OF THE POOLED RESULT
+   Per-cohort results remain the primary evidence and are reported first. The pooled
+   estimate combines different endpoints (METABRIC derived disease-specific survival,
+   SCAN-B overall survival, TCGA progression-free interval in the sensitivity pool) and is
+   labelled as such wherever it appears. A pooled "B-like confirmed" with an "inconclusive"
+   SCAN-B result is reported as pooled support, never as independent replication.
+
+5. SCAN-B ADJUSTMENT SET (fixes Amendment 3, which left it conditional)
+   Primary: age at diagnosis, tumor size (continuous, mm), lymph node group
+   (NodeNegative / SubMicroMet / 1to3 / 4toX). Tumor size and nodal group are used because
+   they are the components of stage, matching the stage adjustment in TCGA and METABRIC.
+   Histological grade (NHG) is NOT adjusted in the primary model: NHG includes a mitotic
+   count, which is itself a proliferation measure, so adjusting for it would absorb part of
+   the exposure. A grade-adjusted model is reported as a sensitivity analysis only.
+
+6. PROHIBITED
+   No change to the pooled set, pooling method, margin, or adjustment set after SCAN-B
+   groups are formed.

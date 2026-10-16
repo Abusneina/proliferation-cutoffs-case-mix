@@ -1,0 +1,12 @@
+# SHA-256 of frozen files from 13 Oct 2026, computed 2026-10-15_1826 (UTC+2) at the time of first posting on OSF.
+# These hashes fix the content from the posting date onward; they do not attest to the freeze date.
+56952cba9a9dba134ca3763a1aba41f93d61495d6a71337dce3000f6a54b0ab9  2026-10-13_1515_proliferation_gene_list_FROZEN.txt
+ed4e869012ec0f9ba7993a49e90ca398ab029db614deb4814550cd0594946fa6  2026-10-13_1545_AMENDMENT-2_discordant-zone_FROZEN.txt
+c491751ca92062b12cee71b996144957408917e61ad8fc335a8a6643285310e2  2026-10-13_1630_AMENDMENT-3_SCAN-B-confirmatory_FROZEN.txt
+58646fcdf4c2ac6f8ccd4aac85550489f02c41bf660275b1aa528c8f636c54bf  2026-10-13_1605_AMENDMENT-4_pooled-C1-and-SCANB-adjustment_FROZEN.txt
+316ca7afd68bef6133816cedbee0b5a261fdc3448adb3406c1d761a6b711c940  2026-10-13_1735_AMENDMENT-5_SCANB-sweep-and-transfer_FROZEN.txt
+01f3f301b54de1763179b825dc09a7c164c8314a237bd32a41caf12c85bb4ef0  2026-10-13_1800_AMENDMENT-6_prevalence-mechanism_FROZEN.txt
+c864e129f58ab507e448ffa5acd7856fef780a2ac424d4f1d5bfc1add386835c  2026-10-13_1620_ERROR-LOG-1_D3-range-restriction.txt
+145fa4b0f24d4d3ee98816543933da75169eafebcd0b10d909194e346ce1e8cf  2026-10-13_1750_ERROR-LOG-2_absolute-transfer-overstated.txt
+5287c3aab1edd860d98a6d125c8bf08a76e9c9849669d29b3d3db613f9ec9780  2026-10-15_1827_ERROR-LOG-3_stated-freeze-times-vs-file-times.txt
+8bc29246a69209272f4bd819803714f5d87e5c5cb85445bac6459ee07dfb2b8f  2026-10-15_1902_ERROR-LOG-3_stated-freeze-times-vs-file-times_v2.txt

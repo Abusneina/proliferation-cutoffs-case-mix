@@ -1,0 +1,23 @@
+SEARCH LOG  -  Ki-67 cut-off vs luminal B share, systematic review (protocol v1.0)
+2026-10-13 ~20:05 UTC+2  PubMed searched via the PubMed API connector.
+OSF registration: NOT in place at the time of this search (see DEVIATION-1). Registered later the same evening.
+TECHNICAL NOTE (not an amendment): the connector rejects queries with more than 20 Boolean
+operators; the frozen string has 23. It was run as two queries splitting the final OR-block
+into (luminal OR PAM50 OR "intrinsic subtype" OR Prosigna OR "recurrence score") and
+(Oncotype OR MammaPrint OR "70-gene" OR "21-gene" OR BluePrint). By distribution of AND over
+OR the union is logically identical to the frozen string.
+Query A: 178 records. Query B: 32 records. Overlap 27. Union: 183 unique PubMed records.
+Records only in B: 42214047, 38879577, 35949891, 34873249, 28662222.
+
+2026-10-13 ~21:45 UTC+2  Europe PMC searched via the PubCrawl connector (ABSTRACT field, preprints excluded).
+  The frozen term blocks were run as two halves, as for PubMed, restricted to records NOT indexed in
+  MEDLINE (NOT SRC:MED), since MEDLINE records were already covered by the PubMed search.
+  Result: 0 additional records from either half.
+  Two earlier Europe PMC queries in this session did not match the frozen string (one omitted
+  "luminal"; one substituted "gene expression"/"genomic" for the assay names). Their 39 and 18
+  records were all already in the PubMed set. They are recorded here and not used.
+Title/abstract screening (AI-assisted first pass): 183 records -> 16 forwarded to full text,
+  167 excluded with reasons (SCREENING-TA_pubmed.md). Awaiting human second screener.
+Blinding caveat: several abstracts state the cut-off they report. The AI first pass therefore saw some
+  cut-offs before design classification. Pass 1 (design) must be repeated by a human reviewer
+  working from masked methods sections, as the protocol specifies.

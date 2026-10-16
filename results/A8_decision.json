@@ -1,0 +1,65 @@
+{
+ "P3": {
+  "per_cohort": {
+   "TCGA": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   },
+   "METABRIC": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   },
+   "SCAN-B": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   }
+  },
+  "G4": true,
+  "decision": "CONFIRMED FOR A GENE-DISJOINT SCORE"
+ },
+ "P3m": {
+  "per_cohort": {
+   "TCGA": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   },
+   "METABRIC": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   },
+   "SCAN-B": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   }
+  },
+  "G4": true,
+  "decision": "CONFIRMED FOR A GENE-DISJOINT SCORE"
+ },
+ "P4": {
+  "per_cohort": {
+   "TCGA": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   },
+   "METABRIC": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   },
+   "SCAN-B": {
+    "G1": true,
+    "G2": true,
+    "G3": true
+   }
+  },
+  "G4": true,
+  "decision": "CONFIRMED FOR A GENE-DISJOINT SCORE"
+ }
+}

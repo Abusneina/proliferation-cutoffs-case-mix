@@ -1,0 +1,111 @@
+PROTOCOL AMENDMENT 10  -  TEST IN AN INDEPENDENT RNA COHORT (LIMITATION: POST HOC PATTERN; FOURTH COHORT FROM THE SAME INITIATIVE)  -  FROZEN
+Drafted: 2026-10-15 19:29 UTC+2; v2 19:33 UTC+2 (times read from the system clock). Author: Abdelmuhsen M. Abusneina.
+Status: FROZEN 2026-10-15 19:38 UTC+2 (author approval given 2026-10-15 19:38). Binding once posted on OSF (osf.io/cwkd9)
+and registered, BEFORE any score, subtype count, luminal B share or result is computed in GSE25066
+or SMC 2018.
+
+WHY THIS AMENDMENT
+  The main pattern was first seen in three cohorts and was then tested in GSE81538, which comes from
+  the same initiative as SCAN-B. A cohort from a different population, country, platform and
+  clinical setting tests whether the pattern transfers. The prediction is the one already
+  registered: the kappa-optimal cut-off sits near 100 minus the luminal B share and moves with it
+  under resampling, while the Youden boundary on the luminal A quantile scale stays fixed.
+
+WHAT HAS BEEN LOOKED AT (see 2026-10-15_1928_SEARCH-LOG_independent-cohorts-for-limitations-1-2-4.md)
+  GSE25066: series title; characteristic field names and non-missing counts; label sets of
+  pam50_class, her2_status, esr1_status, erbb2_status, er_status_ihc_esr1_for indeterminate and
+  source; data-processing statement; probe identifiers; gene coverage of the GPL96 annotation.
+  SMC 2018: column names; label sets of IHC_SUBTYPE, PAM50_SUBTYPE, SUBTYPE_CONSENSUS, SAMPLE_TYPE,
+  SAMPLE_CLASS, TREATMENT_CHEMOTHERAPY; gene symbols of the expression file.
+  Code tests (item 1 below): the structure check loaded both expression files in memory to apply
+  the probe rule and match genes, and printed only gene counts (GSE25066: 12,502 genes after the
+  probe rule; P2 15/18, P3 118/120, P4 182/187. SMC 2018: P2 18/18, P3 120/120). No expression value,
+  score, subtype count, luminal B share or cross-tabulation was printed or saved for either cohort.
+
+DATA (downloaded 2026-10-15; md5)
+  Primary    GSE25066 series matrix (Hatzis et al., JAMA 2011; pretreatment biopsies from MDACC,
+             I-SPY, USO and LBJ/IN/GEI; Affymetrix U133A, MAS5, global scaling to 600)
+             GSE25066_series_matrix.txt.gz  bb8ba628105514111aa818db5a3e3ac6
+             GPL96.annot.gz (GEO platform annotation)  a3c03c05e7b77d2305b84ba5e46181ec
+  Secondary  brca_smc_2018 from the cBioPortal datahub (Kan et al., Nat Commun 2018; RNA-seq TPM)
+             data_clinical_sample.txt  2deb183db905f95b82032ef16a8a2f9a
+             data_clinical_patient.txt d82f6bf4206aaab3511e061d93344a37
+             data_mrna_seq_tpm.txt     119e2dc44a1a72cbf78361f720166455
+
+ELIGIBILITY
+  GSE25066: ER positive by the field "er_status_ihc_esr1_for indeterminate" = P (IHC, with ESR1
+    mRNA used where IHC was indeterminate, as deposited); HER2 negative by her2_status = N
+    (I and NA excluded); pam50_class present. Fields are parsed by field name for each sample,
+    because their order differs between samples.
+  SMC 2018: IHC_SUBTYPE = ER+ (ER+HER2+, HER2+, TN and UA excluded); PAM50_SUBTYPE present
+    (NA excluded); expression available.
+  Agreement analyses use PAM50 luminal A and luminal B tumors; percentiles are taken over the whole
+  eligible stratum, as in Amendments 5, 6 and 8.
+
+EXPRESSION AND SCORES
+  GSE25066: values log2(max(x, 1)). Probes annotated to exactly one gene symbol in GPL96.annot are
+    kept (probes mapped to several genes are dropped). For each gene, the probe with the highest
+    mean log2 value across all 508 samples is used; this is computed once, before eligibility is
+    applied, and uses no subtype information. Legacy symbols are resolved with the Amendment 8
+    alias table.
+  SMC 2018: values log2(TPM + 1).
+  Each gene is standardized within the eligible stratum of its own cohort.
+  P1  MKI67.
+  P2  Mean of the standardized PAM50 proliferation genes available on the platform. GSE25066 has
+      15 of 18 (ANLN, NUF2 and UBE2T have no probe on U133A); SMC 2018 has all 18. The reduced
+      set is stated in every report.
+  P3  Median of the standardized Amendment 8 gene-disjoint genes (frozen list
+      2026-10-14_1641_GENE-LIST_P3-metaPCNA-minus-PAM50_FROZEN.txt). GSE25066 has 118 of 120 with
+      single-gene probes (RHCE and SFRS2 absent); SMC 2018 has 120.
+  P4  As in Amendment 8, descriptive only (GSE25066 182 of 187; SMC 2018 187 of 187).
+
+PRE-SPECIFIED PREDICTIONS (GSE25066; P2 and P3 co-primary)
+  For each of P2 and P3:
+  R1  The observed kappa-optimal percentile lies within 5 points of 100 minus the observed
+      luminal B share.
+  R2  Resampling as in Amendment 6 (200 resamples at luminal B shares of 15, 20, 25, 30, 35, 40 and
+      45% within the luminal set, class-conditional distributions unchanged): the slope of the
+      median kappa-optimal percentile on (100 - share) lies in [0.7, 1.3].
+  R3  Same resampling: the slope of the median Youden cut-off on the luminal A quantile scale lies
+      in [-0.3, 0.3].
+  R4  (supporting) The 2,000-resample bootstrap interval of the Youden boundary on the luminal A
+      quantile scale overlaps the 82nd to 85th quantile.
+  Decision: CONFIRMED IN AN INDEPENDENT COHORT if R1, R2 and R3 all hold for both P2 and P3.
+  NOT CONFIRMED if any of them fails for either score; the score and criterion that failed are
+  reported. R4 is reported and does not change the decision.
+  If fewer than 60 tumors of either luminal subtype are eligible, the test is reported as
+  underpowered and the decision is stated as "not tested"; this threshold is fixed here because the
+  subtype counts are unknown.
+
+SECONDARY (SMC 2018; descriptive, no effect on the decision)
+  R1 to R4 for P2 and P3, with the same code. Reported with the number of eligible tumors.
+
+DESCRIPTIVE
+  Peak kappa with 2,000-resample bootstrap intervals for P1 to P4; Spearman correlation of P3 with
+  P2 within the eligible stratum.
+
+WHAT WILL NOT BE DONE
+  No survival analysis. No re-derivation of PAM50 calls; the deposited calls are the reference.
+  No change to the probe rule, eligibility or criteria after data are read. No change to any
+  registered result.
+
+LIMITS STATED IN ADVANCE
+  GSE25066 consists of core-needle or fine-needle pretreatment biopsies from patients selected for
+  neoadjuvant chemotherapy, so its case mix differs from the surgical cohorts; this is part of what
+  the test examines. Its PAM50 calls come from an Affymetrix implementation of the centroid
+  classifier, which differs from the implementations in the other cohorts. P2 lacks three genes.
+  SMC 2018 is small and drawn mostly from young Korean women.
+
+ANALYSIS CODE
+  code/s23_amendment10.py. Before freezing it is tested on simulated data written in the same file
+  formats (synthetic expression values and synthetic subtype labels). On the real files, the code is
+  run only in a structure check that confirms parsing and gene matching and prints no count, share
+  or value.
+
+ITEMS TO COMPLETE BEFORE FREEZING
+  1. DONE 19:33: s23_amendment10.py written. Mode "simulate" ran the full analysis on synthetic
+     files in both formats (synthetic values and labels; outputs discarded). Mode "structure" parsed
+     the real files as recorded above.
+  2. DONE 2026-10-15 19:38: author approval given; renamed FROZEN with a time stamp. Analysis script frozen with
+     this amendment: code/s23_amendment10.py, SHA-256 b0df341cc4e829c7b7803f27095500894afee6eaf19eb914e1404aa413af3497.
+     Remaining: post on OSF and register; then run s23_amendment10.py in mode "run".

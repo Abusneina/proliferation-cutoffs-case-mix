@@ -1,0 +1,8 @@
+AMENDMENT AND REGISTRATION LOG  -  systematic review protocol v1.0
+2026-10-13 19:40  Protocol v1.0 frozen. MD5 a16d2aedb9da0a8baf1213fdfb7283f4.
+2026-10-13 ~20:05-21:45  Search and title/abstract screening run before registration (Deviation 1).
+2026-10-13 ~21:50  Registered on OSF Registries as an Open-Ended Registration.
+                   Registration: https://osf.io/pc9wm   Associated project: https://osf.io/cwkd9
+                   Attached unchanged: protocol v1.0 and Deviation 1.
+                   Status at recording: archiving. DOI pending; it is to be added when OSF issues it.
+No amendments to the protocol text.

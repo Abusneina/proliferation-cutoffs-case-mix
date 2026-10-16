@@ -1,0 +1,19 @@
+[   0.9s] Fig 1 written
+[   2.0s] Fig 3 written
+[   2.9s] Fig S1 written (post hoc, descriptive)
+ok
+[   0.0s] samples 405
+[86. 80. 75. 70. 66. 60. 54.] [71.  68.2 65.1 62.2 57.4 54.2 52.3] [67.3 64.2 61.9 58.7 56.  53.4 51.2] [69.  65.1 62.1 58.6 56.  53.  50. ]
+[   0.1s] SCAN-B P2: optimum 71th, kappa 0.724
+[   0.1s]   bootstrap P2 0/2000
+[   3.2s]   bootstrap P2 500/2000
+[   6.6s]   bootstrap P2 1000/2000
+[  10.0s]   bootstrap P2 1500/2000
+[  13.2s]   CI 67 to 74
+[  13.2s] SCAN-B P1: optimum 66th, kappa 0.609
+[  13.2s]   bootstrap P1 0/2000
+[  16.4s]   bootstrap P1 500/2000
+[  20.1s]   bootstrap P1 1000/2000
+[  23.4s]   bootstrap P1 1500/2000
+[  26.8s]   CI 64 to 69
+[  27.7s] done

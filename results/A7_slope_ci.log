@@ -1,0 +1,8 @@
+[   0.1s] samples 405
+  bootstrap 0/300
+  bootstrap 50/300
+  bootstrap 100/300
+  bootstrap 150/300
+  bootstrap 200/300
+  bootstrap 250/300
+C1 slope bootstrap: median 0.67, 95% CI 0.54 to 1.57; share below 0.7: 0.58

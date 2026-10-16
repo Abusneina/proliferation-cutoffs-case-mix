@@ -1,0 +1,49 @@
+PROTOCOL AMENDMENT 6  -  DOES CASE MIX, NOT BIOLOGY, MOVE THE OPTIMAL CUT-OFF?  -  FROZEN
+Frozen: 2026-10-13 18:00 UTC+2.
+STATUS: HYPOTHESIS-GENERATING. The pattern motivating it (kappa-optimal percentile within
+2 points of 100 minus the PAM50 luminal B share in all three cohorts: TCGA 74 vs 74,
+SCAN-B 71 vs 70.5, METABRIC 59 vs 61) was observed AFTER A3 was run in SCAN-B.
+None of E1-E3 below has been computed at freeze time.
+
+THE ISSUE THIS ADDRESSES
+  Clinical Ki-67 thresholds are absolute values (percent positive nuclei). Our grid is on a
+  cohort-relative percentile scale. If two cohorts share the same biology but differ in the
+  share of luminal B tumors, the same absolute threshold sits at different percentiles.
+  The cohort-specific percentile optimum reported in A3/A5 could therefore be a product of
+  the percentile framing plus case mix, not evidence that the biology differs. In addition,
+  Cohen kappa rewards matching the reference prevalence, so part of the pattern may be a
+  property of the metric. E1-E3 separate these explanations.
+
+E1  Prevalence-robust optimum. In each cohort and for each score, among PAM50 luminal A/B
+    tumors, find the Youden-optimal threshold (maximizing sensitivity + specificity - 1 for
+    luminal B). Express it three ways: (a) percentile of the full ER+/HER2- stratum (as in
+    A3); (b) quantile of the PAM50 luminal A distribution in that cohort; (c) z relative to
+    the luminal A mean and SD. 2,000-resample patient bootstrap, seed 0.
+    Prediction if case mix alone explains A3: (a) varies across cohorts, (b) and (c) are
+    approximately constant. Prediction if the class distributions differ between cohorts:
+    (b) and (c) also vary.
+E2  Report the kappa-optimal threshold of A3 on scales (b) and (c) as well. Report the three
+    (100 - luminal B share, kappa-optimal percentile) pairs. With three cohorts no formal
+    test of association is made.
+E3  Within-cohort resampling, which removes platform and population differences entirely.
+    Among luminal A/B tumors of each cohort, draw 200 resamples of the original luminal size
+    at luminal B prevalence 15, 20, 25, 30, 35, 40 and 45 percent (sampling with replacement
+    within class, class-conditional distributions unchanged). In each, record the
+    kappa-optimal and Youden-optimal percentile WITHIN THE RESAMPLED SET. Quantity: slope of
+    the median optimal percentile on (100 - prevalence). Slope near 1 for kappa means the
+    kappa optimum is set mechanically by prevalence. Slope near 0 for Youden on scale (b)
+    confirms it is prevalence-robust. Note: E3 percentiles are within the luminal set,
+    whereas A3 used the full stratum; this difference is stated wherever E3 is reported.
+
+STATED CONFOUND
+  Platform is confounded with case mix across cohorts: TCGA and SCAN-B are RNA-seq,
+  METABRIC (the cohort with the highest luminal B share) is microarray. E1 cannot separate
+  them. E3 can, because it changes prevalence within a single platform.
+
+CONSEQUENCE FOR THE PAPER, FIXED NOW
+  If E3 shows the kappa optimum tracks prevalence mechanically and E1(b) is stable, the
+  headline "the optimal cut-off does not transfer" is reframed as "a percentile-defined or
+  agreement-optimized cut-off cannot transfer between populations with different luminal B
+  prevalence, even when the underlying biology is the same", and the earlier framing is
+  not used. If E1(b) varies materially, the original framing stands, with platform named
+  as an unresolved explanation.

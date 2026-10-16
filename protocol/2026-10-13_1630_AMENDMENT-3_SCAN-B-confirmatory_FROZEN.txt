@@ -1,0 +1,41 @@
+PROTOCOL AMENDMENT 3  -  SCAN-B (GSE96058) CONFIRMATORY ANALYSIS  -  FROZEN
+Frozen: 2026-10-13 16:30 UTC+2, BEFORE any SCAN-B file has been received or opened.
+Author: Abdelmuhsen M. Abusneina
+
+PURPOSE
+  METABRIC generated two hypotheses, one pre-specified (H-D1) and one post hoc (H-PLATEAU).
+  SCAN-B is designated the confirmatory cohort for both. Nothing below may be re-tuned
+  on SCAN-B data.
+
+COHORT
+  GSE96058 tumors, replicate samples excluded (isRepl true), er_Status positive,
+  her2_Status negative by pathology, overall survival time and event present.
+  Endpoint: overall survival (the only outcome released). Adjustment: age at diagnosis,
+  plus tumor size and nodal status if released in the series matrix; otherwise age only,
+  and this is reported.
+  Scores P1 and P2 exactly as frozen in 2026-10-13_1515_proliferation_gene_list_FROZEN.txt,
+  standardized within the SCAN-B ER+/HER2- stratum.
+
+FIXED THRESHOLDS (carried over, NOT re-optimized in SCAN-B)
+  P2: 59th and 74th percentile.  P1: 64th and 77th percentile.
+  Groups STABLE_A, DISCORDANT, STABLE_B defined exactly as in Amendment 2.
+
+C1  (confirms pre-specified D1)  Discordant patients resemble luminal B, not luminal A.
+    C1a  HR(DISCORDANT vs STABLE_A) > 1, two-sided p < 0.05.
+    C1b  HR(STABLE_B vs DISCORDANT): 95% CI inside [0.67, 1.50] -> "B-like confirmed";
+         CI includes 1 but exceeds margin -> "inconclusive"; CI excludes 1 -> "refuted".
+    Confirmed only if C1a holds AND C1b is "B-like confirmed", for P2. P1 reported alongside.
+
+C2  (tests post hoc H-PLATEAU)  The prognostic gradient flattens above the lower zone edge.
+    Piecewise-linear Cox model on whole-cohort SD units with a single knot at the 59th
+    percentile (P2) / 64th (P1). Quantity: ratio of slope above knot to slope below knot.
+    Confirmed if the slope above the knot is smaller than below, with the 95% CI for the
+    log-slope difference excluding 0. Reported as confirmatory of a post hoc hypothesis.
+
+C3  (bridge to the clinical measurement, descriptive)  Agreement (Cohen kappa) between the
+    P2-based luminal B call at each fixed threshold and pathology ki67_Status; and the
+    distribution of pathology Ki-67 status across STABLE_A, DISCORDANT and STABLE_B.
+
+PROHIBITED
+  No new knot, threshold, zone definition, gene list or endpoint after SCAN-B is opened.
+  No within-zone slope test of the kind withdrawn in Error Log 1.

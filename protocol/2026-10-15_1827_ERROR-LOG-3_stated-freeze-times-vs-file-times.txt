@@ -1,0 +1,42 @@
+ERROR LOG 3  -  STATED FREEZE TIMES DIFFER FROM FILE-SYSTEM TIMES (13 OCTOBER 2026 DOCUMENTS)
+Recorded: 2026-10-15 18:27 UTC+2 (time read from the system clock), before these documents were first posted on OSF.
+Author: Abdelmuhsen M. Abusneina
+
+WHAT WAS FOUND
+  The time written in the file name and header of the 13 October frozen documents was entered by
+  hand when each document was written, and it was not read from a clock. Each stated time is later
+  than the time the file was actually saved, by 4 to 42 minutes. For four documents the stated
+  time is also later than the analysis the document governs, which makes the documents look as if
+  they were frozen after the analysis. The file-system times show the opposite: every document was
+  saved before the code and results it governs.
+  The same error affected the Amendment 8 and 9 drafts on 14 October; it was found and corrected
+  there before those files were frozen and posted (see the Amendment 8 and 9 headers).
+
+SOURCE OF THE TIMES BELOW
+  Modification times of the files in the project archive (zip, 14 October 2026), local time
+  UTC+2. Check that these are local times: the Amendment 7 file is stamped 12:16 in its name and
+  12:16 on disk; its OSF registration time is 12:47, and its analysis log is stamped 12:53.
+  These file times are the author's own records. They are not externally verifiable.
+
+  Document                                   Stated   Saved   Governs (first output saved)
+  Proliferation gene list                    15:15    15:11   cohort build s01, 15:12
+  Amendment 2 (discordant group)             15:45    15:40   s03 results, 15:41
+  Error Log 1 (D3 range restriction)         16:20    15:48   (record of an error; no output)
+  Amendment 3 (SCAN-B confirmatory)          16:30    15:48   SCAN-B clinical parse 16:00;
+                                                               SCAN-B analysis s07, 17:31
+  Amendment 4 (pooled C1; SCAN-B covariates) 16:05    16:01   SCAN-B analysis s07, 17:31
+  Amendment 5 (SCAN-B sweep and transfer)    17:35    17:30   SCAN-B analysis s07, 17:31
+  Error Log 2 (absolute transfer)            17:50    17:33   (record of an error; no output)
+  Amendment 6 (prevalence mechanism)         18:00    17:52   s08 results, 17:54
+
+  Stated time later than the governed output: gene list, Amendments 2, 5 and 6.
+  Saved time earlier than the governed output: all documents.
+  Name order differs from save order for Amendments 3 and 4 (saved 15:48 and 16:01; named 1630
+  and 1605). Amendment 4 states that it fixes the adjustment set left open in Amendment 3, which
+  fits the save order.
+
+CONSEQUENCE
+  The frozen documents are posted unchanged, with their original names. This log is posted with
+  them. Wherever the manuscript or Online Resource 1 gives freeze times for these documents, the
+  saved times are reported, with a reference to this log. Times for these documents rest on the
+  author's records, because none of them was posted on OSF before 15 October 2026.

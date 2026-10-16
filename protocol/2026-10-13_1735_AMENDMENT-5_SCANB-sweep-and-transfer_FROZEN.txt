@@ -1,0 +1,14 @@
+PROTOCOL AMENDMENT 5  -  ANALYSES A1-A6 APPLIED UNCHANGED TO SCAN-B  -  FROZEN
+Frozen: 2026-10-13 17:35 UTC+2. SCAN-B expression matrix verified (CRC OK) but no score
+has been computed, no patient grouped, no outcome compared.
+
+A1-A6 of protocol v1.1 are applied to SCAN-B exactly as specified for TCGA and METABRIC:
+same grid (5th-95th percentile, step 1), same kappa against PAM50 luminal A/B, same 2,000
+patient-level bootstrap (seed 0), same within-stratum standardization.
+A5 transfer is run from each of the two earlier cohorts' optima INTO SCAN-B, on both the
+percentile and the absolute (within-stratum z) scale. The SCAN-B optimum is reported as the
+third observation of the cohort-specific optimum. It is NOT used to redefine the discordant
+zone, which stays fixed at the values in Amendment 3.
+Expression scale: log2(FPKM + 0.1) as released (minimum value -3.32 = log2 0.1).
+Primary survival analyses in SCAN-B are C1 and C2 of Amendment 3 with the adjustment set of
+Amendment 4; A4 grid hazard ratios are reported descriptively.

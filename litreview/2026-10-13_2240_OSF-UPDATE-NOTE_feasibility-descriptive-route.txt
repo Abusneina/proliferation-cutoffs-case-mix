@@ -1,0 +1,28 @@
+OSF REGISTRATION UPDATE  -  for attachment to osf.io/pc9wm (project osf.io/cwkd9)
+Systematic review: Does the luminal B share of a study population predict the Ki-67 cut-off it reports
+as optimal? Protocol v1.0 (MD5 a16d2aedb9da0a8baf1213fdfb7283f4).
+Date: 13 October 2026. Author: Abdelmuhsen M. Abusneina.
+
+1. Feasibility outcome (protocol Section 5)
+The protocol requires at least 8 studies in the primary stratum (prevalence-dependent derivation
+criterion, PAM50 or intrinsic-subtype reference) before the primary meta-regression is run, with a
+pre-specified fallback that pools the intrinsic-subtype and risk-assay reference classes, and a
+descriptive report if fewer than 8 studies remain.
+
+After the registered database search, full-text assessment, and backward and forward citation searching
+of the included studies, the first-pass counts are:
+  - primary stratum: 2 to 3 studies (one provisional, pending supplementary data);
+  - pooled fallback stratum: 4 studies.
+Both are below the threshold. As pre-specified, the primary test will not be run and the review will be
+reported descriptively, with no inferential claim about the slope.
+
+These counts come from a first-pass assessment and will be confirmed by a second, independent human
+reviewer. If dual review changes the count to 8 or more, the registered analysis will be run as written.
+
+2. Form of publication
+The descriptive synthesis will be reported as a pre-registered component of a primary research article
+on the same question in three public cohorts (TCGA-BRCA, METABRIC, SCAN-B). The registration, this note
+and Deviation 1 (search run before registration) will be cited and disclosed in that article.
+
+3. Changes to the protocol
+None. No eligibility criterion, outcome or analysis rule has been changed.

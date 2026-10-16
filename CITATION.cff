@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite it as below."
+title: "Agreement-optimized gene-expression proliferation cut-offs inherit the case mix of their derivation population: code and records"
+authors:
+  - family-names: Abusneina
+    given-names: Abdelmuhsen M.
+    orcid: "https://orcid.org/0000-0001-9909-5588"
+    affiliation: "Department of Molecular Diagnostics, Faculty of Biomedical Sciences, University of Benghazi, Libya"
+license: MIT
+repository-code: "https://github.com/Abusneina/proliferation-cutoffs-case-mix"
+date-released: 2026-10-16

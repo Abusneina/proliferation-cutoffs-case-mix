@@ -1,0 +1,24 @@
+[   0.0s] samples 405
+[   2.9s] [ER1-3] eligible 256; luminal 232; LumB 85 (36.6%); other PAM50 in eligible: {'LumA': 147, 'LumB': 85, 'Normal': 15, 'Her2': 7, 'Basal': 2}
+[   5.4s] [ER1-3] K: n=232 kappa-opt K>15 (pct 54, kappa 0.530, boot CI (np.float64(15.0), np.float64(15.0))) | Youden K>15 (LumA-q 76; high-tie K>15) J=0.555 CI (np.float64(10.0), np.float64(15.0))
+[   6.9s] [ER1-3] K RESAMPLING slope kappa-pct on (100-share) = 0.62; slope Youden LumA-quantile = 0.00
+[   8.8s] [ER1-3] K1: n=232 kappa-opt K>15 (pct 50, kappa 0.506, boot CI (np.float64(15.0), np.float64(20.0))) | Youden K>15 (LumA-q 71; high-tie K>15) J=0.543 CI (np.float64(15.0), np.float64(15.0))
+[  10.5s] [ER1-3] K1 RESAMPLING slope kappa-pct on (100-share) = 0.95; slope Youden LumA-quantile = 0.02
+[  12.6s] [ER1-3] K2: n=232 kappa-opt K>15 (pct 54, kappa 0.487, boot CI (np.float64(10.0), np.float64(20.0))) | Youden K>15 (LumA-q 73; high-tie K>15) J=0.511 CI (np.float64(10.0), np.float64(15.0))
+[  14.2s] [ER1-3] K2 RESAMPLING slope kappa-pct on (100-share) = 0.86; slope Youden LumA-quantile = -0.02
+[  16.6s] [ER1-3] K3: n=232 kappa-opt K>18 (pct 58, kappa 0.431, boot CI (np.float64(10.0), np.float64(20.0))) | Youden K>18 (LumA-q 75; high-tie K>18) J=0.442 CI (np.float64(10.0), np.float64(18.0))
+[  18.3s] [ER1-3] K3 RESAMPLING slope kappa-pct on (100-share) = 1.26; slope Youden LumA-quantile = 0.05
+[  42.0s] [ER1-3] P2: kappa-opt pct 65 (kappa 0.688; boot CI (np.float64(55.0), np.float64(77.0))) vs 100-share 63.4 | Youden LumA-q 89 CI (73,97), z 1.14
+[  63.5s] [ER1-3] P1: kappa-opt pct 61 (kappa 0.464; boot CI (np.float64(43.0), np.float64(81.0))) vs 100-share 63.4 | Youden LumA-q 72 CI (60,95), z 0.64
+[  63.5s] [ER2-3] eligible 254; luminal 232; LumB 85 (36.6%); other PAM50 in eligible: {'LumA': 147, 'LumB': 85, 'Normal': 15, 'Her2': 6, 'Basal': 1}
+[  65.5s] [ER2-3] K: n=232 kappa-opt K>15 (pct 54, kappa 0.530, boot CI (np.float64(15.0), np.float64(15.0))) | Youden K>15 (LumA-q 76; high-tie K>15) J=0.555 CI (np.float64(10.0), np.float64(15.0))
+[  66.7s] [ER2-3] K RESAMPLING slope kappa-pct on (100-share) = 0.61; slope Youden LumA-quantile = -0.04
+[  68.4s] [ER2-3] K1: n=232 kappa-opt K>15 (pct 50, kappa 0.506, boot CI (np.float64(15.0), np.float64(20.0))) | Youden K>15 (LumA-q 71; high-tie K>15) J=0.543 CI (np.float64(15.0), np.float64(15.0))
+[  70.3s] [ER2-3] K1 RESAMPLING slope kappa-pct on (100-share) = 0.92; slope Youden LumA-quantile = 0.00
+[  72.4s] [ER2-3] K2: n=232 kappa-opt K>15 (pct 54, kappa 0.487, boot CI (np.float64(10.0), np.float64(20.0))) | Youden K>15 (LumA-q 73; high-tie K>15) J=0.511 CI (np.float64(10.0), np.float64(15.0))
+[  73.8s] [ER2-3] K2 RESAMPLING slope kappa-pct on (100-share) = 0.86; slope Youden LumA-quantile = -0.00
+[  76.0s] [ER2-3] K3: n=232 kappa-opt K>18 (pct 58, kappa 0.431, boot CI (np.float64(10.0), np.float64(20.0))) | Youden K>18 (LumA-q 75; high-tie K>18) J=0.442 CI (np.float64(10.0), np.float64(18.0))
+[  77.4s] [ER2-3] K3 RESAMPLING slope kappa-pct on (100-share) = 1.23; slope Youden LumA-quantile = 0.07
+[  99.0s] [ER2-3] P2: kappa-opt pct 65 (kappa 0.688; boot CI (np.float64(56.95), np.float64(77.0))) vs 100-share 63.4 | Youden LumA-q 89 CI (72,97), z 1.14
+[ 121.7s] [ER2-3] P1: kappa-opt pct 62 (kappa 0.472; boot CI (np.float64(43.0), np.float64(81.0))) vs 100-share 63.4 | Youden LumA-q 72 CI (60,95), z 0.64
+[ 121.7s] done.

@@ -1,0 +1,17 @@
+score,test,set,method,hr,lo,hi,I2,verdict
+P2,C1a,all three (primary),fixed,0.7700995827748786,0.651235059099028,0.9106594602116793,0,discordant worse than stable A-like
+P2,C1a,all three (primary),random,0.7700995827748786,0.651235059099028,0.9106594602116793,0,discordant worse than stable A-like
+P2,C1a,METABRIC+SCAN-B,fixed,0.7657064264460332,0.6452937646782231,0.9085882486298579,0,discordant worse than stable A-like
+P2,C1a,METABRIC+SCAN-B,random,0.7657064264460332,0.6452937646782231,0.9085882486298579,0,discordant worse than stable A-like
+P2,C1b,all three (primary),fixed,1.0816549625154475,0.9010638825812745,1.298440077947264,0,B-like supported on a common endpoint
+P2,C1b,all three (primary),random,1.0816549625154475,0.9010638825812745,1.298440077947264,0,B-like supported on a common endpoint
+P2,C1b,METABRIC+SCAN-B,fixed,1.0658693234754413,0.8842820116154901,1.2847455899849203,0,B-like supported on a common endpoint
+P2,C1b,METABRIC+SCAN-B,random,1.0658693234754413,0.8842820116154901,1.2847455899849203,0,B-like supported on a common endpoint
+P1,C1a,all three (primary),fixed,0.8120959898922379,0.6800952857293112,0.9697169067887719,0,discordant worse than stable A-like
+P1,C1a,all three (primary),random,0.8120959898922379,0.6800952857293112,0.9697169067887719,0,discordant worse than stable A-like
+P1,C1a,METABRIC+SCAN-B,fixed,0.8150982808220645,0.6801582496219241,0.9768097465088358,0,discordant worse than stable A-like
+P1,C1a,METABRIC+SCAN-B,random,0.8150982808220645,0.6801582496219241,0.9768097465088358,0,discordant worse than stable A-like
+P1,C1b,all three (primary),fixed,1.0384150427843037,0.8532927252975182,1.2636997470062266,0,B-like supported on a common endpoint
+P1,C1b,all three (primary),random,1.0384150427843037,0.8532927252975182,1.2636997470062266,0,B-like supported on a common endpoint
+P1,C1b,METABRIC+SCAN-B,fixed,1.030850374998864,0.8434449588539508,1.2598954851531756,0,B-like supported on a common endpoint
+P1,C1b,METABRIC+SCAN-B,random,1.030850374998864,0.8434449588539508,1.2598954851531756,0,B-like supported on a common endpoint

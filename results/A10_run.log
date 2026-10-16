@@ -1,0 +1,54 @@
+[    1.9s] ======================================================================
+[    1.9s] GSE25066: loading
+[    4.9s]   GSE25066 matrix: 5000 probes read
+[    8.2s]   GSE25066 matrix: 10000 probes read
+[   10.9s]   GSE25066 matrix: 15000 probes read
+[   14.0s]   GSE25066 matrix: 20000 probes read
+[   18.4s]   genes: P2 15/18 (missing ['ANLN', 'NUF2', 'UBE2T']); P3 118/120 (missing ['RHCE', 'SFRS2']); P4 182/187
+[   18.4s]   fewer than 60 tumors in a luminal subtype: reported as underpowered
+[   18.4s]   GSE25066 P1: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   19.2s]      bootstrap 500/2000
+[   20.1s]      bootstrap 1000/2000
+[   20.8s]      bootstrap 1500/2000
+[   23.8s]   GSE25066 P1: LumB 29.0% target 71.0 | kappa-opt 72 (kappa 0.382) | slopes 0.90, -0.05 | Youden LumA-q 52 (39 to 92) | R1 True R2 True R3 True R4 True
+[   23.8s]   GSE25066 P2: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   24.6s]      bootstrap 500/2000
+[   25.3s]      bootstrap 1000/2000
+[   26.0s]      bootstrap 1500/2000
+[   28.7s]   GSE25066 P2: LumB 29.0% target 71.0 | kappa-opt 60 (kappa 0.697) | slopes 1.26, 0.05 | Youden LumA-q 84 (74 to 98) | R1 False R2 True R3 True R4 True
+[   28.7s]   GSE25066 P3: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   29.4s]      bootstrap 500/2000
+[   30.0s]      bootstrap 1000/2000
+[   30.7s]      bootstrap 1500/2000
+[   33.3s]   GSE25066 P3: LumB 29.0% target 71.0 | kappa-opt 69 (kappa 0.732) | slopes 0.86, -0.01 | Youden LumA-q 94 (67 to 98) | R1 True R2 True R3 True R4 True
+[   33.3s]   GSE25066 P4: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   34.0s]      bootstrap 500/2000
+[   34.7s]      bootstrap 1000/2000
+[   35.5s]      bootstrap 1500/2000
+[   38.3s]   GSE25066 P4: LumB 29.0% target 71.0 | kappa-opt 69 (kappa 0.694) | slopes 1.06, -0.06 | Youden LumA-q 87 (69 to 98) | R1 True R2 True R3 True R4 True
+[   38.3s]   Spearman P3 vs P2: 0.95
+[   38.3s] ======================================================================
+[   38.3s] SMC2018: loading
+[   53.5s]   genes: P2 18/18 (missing []); P3 120/120 (missing []); P4 187/187
+[   53.5s]   fewer than 60 tumors in a luminal subtype: reported as underpowered
+[   53.5s]   SMC2018 P1: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   54.3s]      bootstrap 500/2000
+[   55.1s]      bootstrap 1000/2000
+[   55.7s]      bootstrap 1500/2000
+[   58.5s]   SMC2018 P1: LumB 49.4% target 50.6 | kappa-opt 50 (kappa 0.590) | slopes 0.91, 0.05 | Youden LumA-q 81 (73 to 100) | R1 True R2 True R3 True R4 True
+[   58.5s]   SMC2018 P2: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   59.2s]      bootstrap 500/2000
+[   60.0s]      bootstrap 1000/2000
+[   60.7s]      bootstrap 1500/2000
+[   63.3s]   SMC2018 P2: LumB 49.4% target 50.6 | kappa-opt 44 (kappa 0.711) | slopes 1.02, 0.04 | Youden LumA-q 81 (74 to 100) | R1 False R2 True R3 True R4 True
+[   63.3s]   SMC2018 P3: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   63.9s]      bootstrap 500/2000
+[   64.6s]      bootstrap 1000/2000
+[   65.2s]      bootstrap 1500/2000
+[   68.3s]   SMC2018 P3: LumB 49.4% target 50.6 | kappa-opt 38 (kappa 0.664) | slopes 1.17, -0.02 | Youden LumA-q 71 (63 to 93) | R1 False R2 True R3 True R4 True
+[   68.3s]   SMC2018 P4: sweep, 2000 bootstraps, 7 x 200 resamples ...
+[   69.1s]      bootstrap 500/2000
+[   69.9s]      bootstrap 1000/2000
+[   70.6s]      bootstrap 1500/2000
+[   73.3s]   SMC2018 P4: LumB 49.4% target 50.6 | kappa-opt 38 (kappa 0.544) | slopes 1.31, 0.05 | Youden LumA-q 64 (56 to 93) | R1 False R2 False R3 True R4 True
+[   73.3s] DECISION: {'GSE25066': 'NOT TESTED (underpowered)'}

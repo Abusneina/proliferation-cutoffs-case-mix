@@ -1,0 +1,150 @@
+# FROZEN-CANDIDATE GENE LIST FOR AMENDMENT 8 (DRAFT UNTIL AMENDMENT 8 IS FROZEN)
+# Score P3: meta-PCNA proliferation index with every PAM50 gene removed.
+# Source signature: Venet D, Dumont JE, Detours V. Most random gene expression signatures are
+#   significantly associated with breast cancer outcome. PLoS Comput Biol 2011;7(10):e1002240.
+#   doi:10.1371/journal.pcbi.1002240. Definition: the 1% of genes most positively correlated with
+#   PCNA across 36 normal human tissues (Ge et al. 2005); index = median expression of these genes.
+# Machine-readable copy used: R package ProliferativeIndex v1.0.1 (CRAN, 2018-08-14),
+#   file R/sysdata.rda, object metaPCNA2, md5 c4d5ce43363dcd3610b8a34dd55d0695
+#   (retrieved from the CRAN mirror github.com/cran/ProliferativeIndex on 2026-10-14).
+#   The object holds 137 entries: 5 duplicates (AHSP, CDC45, CDK1, HJURP, TSPO2) and one
+#   misspelling (KIR18B; KIF18B is already present). After removing these, 131 unique symbols
+#   remain, matching the 131 genes reported by Venet et al. The package vignette also reports 131.
+#   CHECKED 2026-10-14 16:20 against Venet et al. Table S1 (131 rows, 131 Entrez IDs): identical
+#   after renaming CDC2=CDK1, DKFZp762E1312=HJURP, LOC146909=KIF18B, ERAF=AHSP, CDC45L=CDC45,
+#   BZRPL1=TSPO2 (matched on Entrez ID).
+# PAM50 genes removed (11): BIRC5 CCNB1 CDC20 KIF2C MELK MKI67 ORC6L PTTG1 RRM2 TYMS UBE2C
+# Genes retained: 120. Symbols kept as deposited; aliases are resolved at load time (see below).
+##P3_START
+PCNA
+CKS2
+NUSAP1
+ZWINT
+PRC1
+TFDP1
+CCNA2
+TPX2
+NCAPG2
+RFWD3
+TACC3
+CDK1
+KIAA0101
+MCM2
+MCM5
+ASF1B
+CCNB2
+GTPBP2
+KIF20A
+AURKA
+HJURP
+FOXM1
+GINS2
+MAD2L1
+GINS1
+MCM6
+NCAPD2
+NUP37
+CKS1B
+KIF18B
+MCM7
+ARID3A
+AURKB
+CDCA8
+SNRPD1
+TROAP
+C21orf45
+DDX39
+AHSP
+ESPL1
+HMBS
+LSM6
+MCM4
+NCAPD3
+PPIH
+CDC45
+DTL
+EPB42
+HMGN2
+MCM3
+PF4
+PPBP
+RFC4
+TOP2A
+BUB1B
+CDT1
+FEN1
+GATA1
+GYPB
+HMGB2
+KIF22
+KLF1
+MLF1IP
+RFC3
+RHCE
+TAL1
+TCF3
+ALAS2
+TSPO2
+CDCA3
+CENPA
+CKLF
+GTSE1
+OIP5
+NFE2
+SHCBP1
+SNF8
+SNRPB
+SPTA1
+KEL
+LYL1
+PSMD9
+RACGAP1
+RPIA
+TIMELESS
+TRMT5
+VRK1
+FBXO7
+H3F3A
+NUDT1
+PLEK
+POLE2
+RHAG
+WHSC1
+APOBEC3B
+BPGM
+CHAF1A
+DNAJC9
+FBXO5
+KIF4A
+KLF15
+PGD
+RPA3
+SFRS2
+TRIM58
+ADAMTS13
+CDCA4
+CDKN3
+FECH
+LBR
+LIG1
+LMNB1
+MICB
+NUP210
+RAD51AP1
+RHD
+SMC4
+GYPA
+RPP30
+TRIM10
+##P3_END
+#
+# ALIASES TO RESOLVE AT LOAD TIME (symbol in list = alternative symbol a matrix may use)
+# KIAA0101 = PCLAF    MLF1IP = CENPU    WHSC1 = NSD2     SFRS2 = SRSF2
+# C21orf45 = MIS18A   DDX39 = DDX39A    H3F3A = H3-3A    CDK1 = CDC2
+# Any further unmatched symbol is reported, not guessed.
+#
+# NOTE ON NON-PROLIFERATION MEMBERS (descriptive flag only; no genes are removed)
+# About 25 members are erythroid or megakaryocyte genes (e.g., ALAS2, GATA1, GYPA, KLF1, PF4,
+# PPBP), presumably because PCNA co-varies with them in bone marrow within the normal-tissue
+# atlas. They are retained to keep the published definition intact; the median aggregation
+# limits their influence. This classification is the author's and is not taken from the source.

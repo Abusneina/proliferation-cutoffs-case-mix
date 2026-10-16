@@ -1,0 +1,22 @@
+ERROR LOG 4  -  AMENDMENT 10: THE CHOSEN ER FIELD EXISTS FOR ONLY 310 OF 508 GSE25066 SAMPLES
+Recorded: 2026-10-15 20:23 UTC+2 (time read from the system clock), after the Amendment 10 run (20:22) and
+before any write-up. Author: Abdelmuhsen M. Abusneina.
+
+WHAT WAS SPECIFIED
+  Amendment 10 defined ER positivity in GSE25066 by the field "er_status_ihc_esr1_for indeterminate" = P.
+
+WHAT WAS WRONG
+  That field is present for 310 of the 508 samples (the discovery series, GSE25055). The field
+  "er_status_ihc", present for all 508, was available and was not chosen. The non-missing count of
+  310 was printed during the pre-freeze field listing (search log of 19:28) and was overlooked.
+  The error was made in drafting; it was not caused by any data seen.
+
+CONSEQUENCE
+  The eligible ER-positive, HER2-negative stratum had 167 tumors, of which 93 were luminal A and 38
+  luminal B. Under the rule fixed in Amendment 10 (at least 60 tumors in each luminal subtype),
+  the registered verdict is NOT TESTED (underpowered). This verdict stands and is reported as such.
+
+WHAT WILL BE DONE
+  The registered result is not changed. Any analysis using "er_status_ihc" for all 508 samples is
+  now post hoc, because the Amendment 10 results are known; if run, it will be labeled exploratory,
+  will not produce a confirmatory verdict, and will be reported next to the registered result.

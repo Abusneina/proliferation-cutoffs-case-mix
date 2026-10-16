@@ -1,0 +1,33 @@
+ERROR LOG 1  -  specification error in Amendment 2, analysis D3
+Recorded: 2026-10-13 16:20 UTC+2, after D3 was executed and before any write-up.
+
+WHAT WAS SPECIFIED
+  D3 fitted the continuous proliferation score inside the discordant zone, standardized
+  WITHIN the zone, and R1(b) required its HR per SD to fall inside [0.67, 1.50].
+
+WHY THIS IS INVALID
+  The zone spans only 0.35-0.44 whole-cohort SD. Standardizing inside it makes one unit
+  equal to about 0.11 whole-cohort SD. If the whole-cohort slope (HR 1.52 per SD, METABRIC
+  P2) held perfectly inside the zone, the expected HR per within-zone unit is
+  1.52^0.11 = 1.05, which lies inside the margin by construction. Criterion R1(b) was
+  therefore satisfied regardless of biology. The D3 "null" is range restriction, not
+  evidence of a flat region.
+
+EVIDENCE (whole-cohort SD units)
+  METABRIC P2 inside zone: HR 0.40, 95% CI 0.05-2.99   (uninformative)
+  METABRIC P1 inside zone: HR 0.68, 95% CI 0.10-4.85   (uninformative)
+  TCGA, both scores: CIs spanning more than two orders of magnitude
+  Expected HR across the full zone width under the whole-cohort slope: 1.11-1.17
+
+CONSEQUENCE
+  The claim "the discordant zone is prognostically empty" is WITHDRAWN. It is not
+  supported and was never testable by a within-zone slope with these sample sizes.
+  Figure 2 of 2026-10-13_1600 (whole cohort vs inside zone, per SD) is withdrawn.
+
+WHAT REMAINS VALID (unaffected by the scaling error)
+  D1 group contrasts, D4 trend, D5 zone size. In METABRIC the discordant group is worse
+  than stable luminal A-like and not distinguishable from stable luminal B-like.
+
+HOW IT WAS FOUND
+  A descriptive post hoc plot of hazard by twentieth of the score (Figure S1) did not show
+  the flat band the D3 result implied, which prompted the unit check.

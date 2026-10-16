@@ -1,0 +1,65 @@
+PROTOCOL AMENDMENT 7  -  CONFIRMATORY TEST ON PATHOLOGIST-SCORED KI-67 (GSE81538)  -  FROZEN
+Frozen: 2026-10-14 12:16 UTC+2. Author: Abdelmuhsen M. Abusneina.
+To be posted on OSF (osf.io/pc9wm project) BEFORE any analysis below is run.
+
+WHAT HAS BEEN LOOKED AT BEFORE THIS FREEZE (and nothing else)
+  - Field names and value types of the GSE81538 series matrix: three Ki-67 readings and a
+    consensus, each recorded as percent positive nuclei (15 to 23 distinct values per field);
+    ER, PgR, HER2 readings and consensus; NHG; PAM50 subtype.
+  - The pathology key (Ki-67 = percent positive nuclei; "generally low 0-20, high >20").
+  - Gene names in the expression matrix (all 19 genes present; ORC6L recorded as ORC6) and the
+    deposited scale (log2(FPKM + 0.1), per the series matrix processing text).
+  - The number of eligible tumors: 256 with ER consensus code 1-3 and HER2 consensus normal.
+  No Ki-67 value, no PAM50 call, no expression value and no cross-tabulation has been examined.
+
+WHY THIS AMENDMENT
+  The main analysis used mRNA proliferation scores, and its central pattern (kappa optimum tracks
+  100 minus the luminal B share; Youden boundary fixed on the luminal A scale) was first noticed
+  post hoc. GSE81538 provides centrally stained Ki-67 IHC scored as a percentage by three
+  pathologists, plus PAM50, in tumors not used in any analysis so far. This tests the pattern on
+  the clinical measurement, in a fresh cohort, with predictions fixed in advance.
+
+POPULATION
+  ER consensus code 1-3 (>= 1% positive) and HER2 consensus 0 (not amplified). Analyses of
+  agreement use PAM50 luminal A and luminal B tumors only. Sensitivity: ER code 2-3 (> 10%,
+  Swedish standard).
+
+MEASURES
+  K   = consensus Ki-67 percent (primary). Sensitivity: each single reading (1, 2, 3).
+  P2  = 18-gene proliferation score as frozen 2026-10-13 15:15, standardized within this stratum.
+  P1  = MKI67 mRNA, standardized within this stratum.
+  Ki-67 values are tied; a cut-off c classifies K > c as luminal B-like. Candidate cut-offs are all
+  distinct observed values. Each cut-off is also expressed as the percentile of the stratum
+  (share of tumors with K <= c) and as the quantile of PAM50 luminal A (share of luminal A <= c).
+
+PRE-SPECIFIED PREDICTIONS (CONFIRMATORY)
+  C1  Resampling (same design as Amendment 6, E3): 200 resamples per luminal B share of 15, 20, 25,
+      30, 35, 40, 45% within the luminal set, class-conditional distributions unchanged.
+      For K: slope of the median kappa-optimal percentile on (100 - share) lies in [0.7, 1.3].
+  C2  For K: slope of the median Youden-optimal cut-off, on the luminal A quantile scale, on
+      (100 - share) lies in [-0.3, 0.3].
+  C3  For P2 in GSE81538 (fourth RNA cohort): kappa-optimal percentile within 5 points of
+      100 minus the observed luminal B share, and bootstrap 95% CI of the Youden boundary on the
+      luminal A quantile scale overlaps 82 to 85.
+  Decision: the mechanism is CONFIRMED on IHC Ki-67 if C1 and C2 both hold for K. It is NOT
+  CONFIRMED if either fails; that result will be reported as such in the main text.
+
+PRE-SPECIFIED DESCRIPTIVE ANALYSES
+  D1  Absolute Ki-67 threshold chosen by maximum kappa at imposed luminal B shares of 20% and 45%
+      (median and 2.5th to 97.5th percentiles over resamples). This expresses the case-mix effect
+      in percent positive nuclei, the unit laboratories use.
+  D2  Same for the Youden threshold.
+  D3  Observed kappa-optimal and Youden-optimal Ki-67 thresholds with 2,000-resample bootstrap CIs.
+  D4  C1, C2 and D1 repeated for each single pathologist reading, as a measure of reader effect.
+  D5  Agreement (kappa) with PAM50 for K, P1 and P2 at their own optima.
+
+WHAT WILL NOT BE DONE
+  No survival analysis (no outcome data deposited for this cohort). No change to the main
+  analysis. No new anchor (for example grade-based) is added under this amendment.
+
+LIMITS STATED IN ADVANCE
+  The cohort was enriched for HER2-positive and ER-negative tumors, so the eligible luminal set is
+  small (expected about 200) and confidence intervals will be wide. Ki-67 values are coarse and
+  tied, so percentile steps are discrete; this is why tolerances are set as above. Ki-67 was
+  stained on new sections at a single central laboratory, which removes between-laboratory
+  variation and does not represent it.

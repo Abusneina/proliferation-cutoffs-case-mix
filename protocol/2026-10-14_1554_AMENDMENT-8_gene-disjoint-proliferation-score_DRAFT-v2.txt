@@ -1,0 +1,137 @@
+PROTOCOL AMENDMENT 8  -  GENE-DISJOINT PROLIFERATION SCORE (LIMITATION: SHARED GENES WITH PAM50)  -  DRAFT v2
+Drafted: 2026-10-14 15:40 UTC+2 (v1); revised 2026-10-14 16:00 UTC+2 (v2). Author: Abdelmuhsen M. Abusneina.
+Status: DRAFT. Becomes binding only when renamed FROZEN, time-stamped, and posted on OSF
+(osf.io/cwkd9) BEFORE any expression value of a P3 or P4 gene is read.
+Changes from v1: item 2 of the pre-freeze list completed (P4 list); gene availability, alias table
+and duplicate-row rule fixed from row labels only; reproduction check of P1 and P2 added; analysis
+script named.
+
+WHAT HAS BEEN LOOKED AT BEFORE THIS DRAFT (and nothing else)
+  - The published definition of meta-PCNA (Venet et al. 2011) and a machine-readable copy of its
+    131 genes (ProliferativeIndex v1.0.1; provenance in the P3 gene-list file).
+  - Overlap of that list with the 50 PAM50 genes (11 shared; 120 retained).
+  - MSigDB HALLMARK_G2M_CHECKPOINT, release 2026.1.Hs (200 genes; 13 shared with PAM50; 187
+    retained; provenance in the P4 gene-list file).
+  - Row labels (gene symbols) of the four expression matrices, used only to count available genes,
+    resolve legacy symbols and find duplicated rows.
+  - Expression values of MKI67 and the 18 P2 genes, already analyzed under earlier amendments,
+    read again only to confirm that the freshly downloaded matrices reproduce the stored P1 and P2
+    (see REPRODUCTION CHECK).
+  No expression value of any P3 or P4 gene that is not also a P1 or P2 gene has been read. P3
+  shares no gene with P1 or P2. P4 shares none either, since all PAM50 genes were removed.
+
+WHY THIS AMENDMENT
+  The 18-gene score (P2) consists of PAM50 proliferation genes, and MKI67 (P1) is itself a PAM50
+  gene. Agreement of either score with PAM50 is therefore partly built in. The question is whether
+  the main pattern (kappa-optimal percentile tracks 100 minus the luminal B share; the Youden
+  boundary stays fixed on the luminal A quantile scale) depends on that overlap. A score that
+  shares no gene with PAM50 answers this. Lower peak agreement is expected and is not itself a
+  test of the pattern. The pathologist-scored Ki-67 test of Amendment 7 measures protein and is
+  unaffected by this limitation.
+
+DATA SOURCES (downloaded 2026-10-14, 15:48 UTC+2; md5 of the files as downloaded)
+  TCGA-BRCA   cBioPortal datahub brca_tcga_pan_can_atlas_2018/data_mrna_seq_v2_rsem.txt
+              18d0267b0338b2d27ed023962bd88050
+  METABRIC    cBioPortal datahub brca_metabric/data_mrna_illumina_microarray.txt
+              a62c864b3f927cb965f0247d63fcf880
+  SCAN-B      GEO GSE96058_gene_expression_3273_samples_and_136_replicates_transformed.csv.gz
+              4362d1d9b5e80a6e1409cd7b9dc4a0ab
+  GSE81538    GEO GSE81538_gene_expression_405_transformed.csv.gz
+              a51f0b2b60af070d43dacb7245b69294; series matrix 8cbbc5832cad22515dd13df7a35904ee
+
+REPRODUCTION CHECK (done before this draft; results/A8_precheck_P1P2_reproduction.csv)
+  Recomputing P1 and P2 from the downloaded matrices on the analyzed tumors gave a maximum absolute
+  difference from the stored scores of 4.4e-16 or less in TCGA (n = 573), METABRIC (n = 1,397) and
+  SCAN-B (n = 2,425). The GSE81538 stratum rebuilt from the series matrix matches Amendment 7
+  (256 eligible; 232 luminal; 85 luminal B, 36.6%).
+  Finding recorded during the check: the METABRIC matrix holds two rows for BIRC5 (200 duplicated
+  symbols in all). The main analysis kept the LAST row of a duplicated symbol (a side effect of the
+  loading code, not a stated rule). Taking the mean of the two BIRC5 rows instead changes METABRIC
+  P2 slightly (r = 0.997 with the stored score). The registered results are unchanged; this is
+  noted for the Methods.
+
+MEASURES
+  P3 (primary)    meta-PCNA minus PAM50 genes, 120 genes, list file
+                  2026-10-14_1540_GENE-LIST_P3-metaPCNA-minus-PAM50 (renamed FROZEN at freeze).
+                  Each gene standardized within the ER-positive, HER2-negative stratum of its own
+                  cohort, as for P2. Score = MEDIAN of the standardized values across available
+                  genes (the aggregation of the published index).
+  P3m (secondary) same genes, score = MEAN of the standardized values (the aggregation used for
+                  P2), so that a change in result can be attributed to genes or to aggregation.
+  P4 (sensitivity) HALLMARK_G2M_CHECKPOINT (Liberzon et al. 2015), MSigDB 2026.1.Hs, minus all
+                  PAM50 genes, 187 genes, list file
+                  2026-10-14_1555_GENE-LIST_P4-HallmarkG2M-minus-PAM50 (renamed FROZEN at freeze).
+                  Median of standardized values.
+  Expression scale: as in the main analysis (TCGA log2(RSEM + 1); METABRIC, SCAN-B and GSE81538
+  as deposited).
+  Duplicated symbols: the last row is used, matching the main analysis. Affects METABRIC only;
+  among P3 and P4 genes: KPNA2, ZWINT, CDKN2C.
+  Symbol resolution: a list symbol absent from a matrix is matched to the alternative symbols
+  below, in the order given. Pseudogenes and read-through transcripts are never used as stand-ins
+  (H3F3AP4 is not used for H3F3A; CKLF-CMTM1 is not used for CKLF).
+    KIAA0101=PCLAF  MLF1IP=CENPU  WHSC1=NSD2  SFRS2=SRSF2  C21orf45=MIS18A  DDX39=DDX39A
+    H3F3A=H3-3A  CDK1=CDC2  DDX39A=DDX39  H2AX=H2AFX  H2AZ1=H2AFZ  H2AZ2=H2AFV
+    H2BC12=HIST1H2BK  JPT1=HN1  KMT5A=SETD8  KNL1=CASC5  MAP3K20=ZAK  NSD2=WHSC1  ORC5=ORC5L
+    PRP4K=PRPF4B  SRSF1=SFRS1  SRSF10=SFRS13A  SRSF2=SFRS2  TENT4A=PAPD7
+  Gene availability after resolution (row labels only):
+    P3: TCGA 120/120; METABRIC 119/120 (CKLF absent); SCAN-B 119/120 (H3F3A absent);
+        GSE81538 119/120 (H3F3A absent).
+    P4: TCGA 187/187; METABRIC 187/187; SCAN-B 187/187; GSE81538 186/187 (PTTG3P absent).
+  All exceed the 80% threshold, so every score is analyzed in every cohort. A gene absent from a
+  platform is dropped for that cohort and reported.
+  Cohorts, eligibility, tumors and PAM50 calls are exactly as in the main analysis (TCGA, METABRIC
+  and SCAN-B: the stored cohort files; GSE81538: ER consensus 1 to 3 and HER2 consensus 0, the
+  Amendment 7 primary stratum). Percentiles are taken over the whole ER-positive, HER2-negative
+  stratum; agreement is computed among luminal A and B tumors, as in Amendments 5 and 6.
+
+COHORTS
+  TCGA-BRCA, METABRIC, SCAN-B (GSE96058), and GSE81538 (RNA arm only).
+
+PRE-SPECIFIED PREDICTIONS FOR P3 (CONFIRMATORY FOR THIS AMENDMENT)
+  G1  In each of TCGA-BRCA, METABRIC and SCAN-B, the observed kappa-optimal percentile of P3 lies
+      within 5 points of 100 minus the observed luminal B share.
+  G2  Resampling (design of Amendment 6, E3: 200 resamples per luminal B share of 15, 20, 25, 30,
+      35, 40, 45% within the luminal set, class-conditional distributions unchanged): in each of
+      the three cohorts, the slope of the median kappa-optimal percentile of P3 on (100 - share)
+      lies in [0.7, 1.3].
+  G3  Same resampling: in each of the three cohorts, the slope of the median Youden-optimal
+      cut-off of P3, on the luminal A quantile scale, on (100 - share) lies in [-0.3, 0.3].
+  G4  In GSE81538, the observed kappa-optimal percentile of P3 lies within 5 points of 100 minus
+      the observed luminal B share (36.6%, so 63.4).
+  Decision: the pattern is CONFIRMED FOR A GENE-DISJOINT SCORE if G1, G2 and G3 all hold. It is
+  NOT CONFIRMED if any of them fails; the result is then reported as such, with the cohort and
+  criterion that failed. G4 is reported as a supporting test and does not alter the decision.
+  Tolerances repeat those already registered for P2 so that the two scores are judged alike.
+
+PRE-SPECIFIED DESCRIPTIVE ANALYSES
+  H1  Peak kappa with PAM50 for P1, P2, P3, P3m and P4 at their own optima, per cohort, with
+      2,000-resample bootstrap CIs. This quantifies how much agreement the shared genes supplied.
+  H2  Spearman correlation of P3, P3m and P4 with P2 within the ER-positive, HER2-negative stratum
+      and within luminal A and luminal B separately.
+  H3  G1 to G3 repeated for P3m and P4, judged by the same rules and reported as secondary.
+  H4  Youden boundary of P3 on the luminal A quantile scale per cohort, with bootstrap CIs.
+  P1 and P2 are rerun through the same code so that all five scores are handled identically.
+  Random seed 20261014. Analysis code: code/s21_amendment8.py (mode "run"), which refuses to start
+  unless both list files carry FROZEN in their names.
+
+WHAT WILL NOT BE DONE
+  No survival analysis with P3 or P4. No removal of individual genes from P3 or P4 after
+  expression is seen (the erythroid and megakaryocyte members flagged in the P3 gene-list file stay
+  in). No change to the main analysis or to registered results, including the Amendment 7 verdict
+  (not confirmed on IHC). No new reference standard.
+
+LIMITS STATED IN ADVANCE
+  PAM50 remains the reference, so P3 removes shared genes but not shared biology: the PAM50
+  luminal A/B split is itself driven by proliferation, so some agreement is expected for any valid
+  proliferation measure. P3 was derived in normal tissue and was not designed for breast cancer,
+  so its separation of luminal A from B may be weaker, which widens intervals. P4 contains genes
+  outside proliferation (for example HIF1A, NOTCH2, EGF, MEIS1, SMAD3, TGFB1).
+
+ITEMS TO COMPLETE BEFORE FREEZING
+  1. Check the 131 meta-PCNA genes against Venet et al., Table S1 ("The meta-PCNA signature";
+     PLoS Comput Biol 2011;7:e1002240, file journal.pcbi.1002240.s002) and record the result
+     here. PENDING: the file could not be retrieved from the working environment.
+  2. DONE (v2): HALLMARK_G2M_CHECKPOINT downloaded (MSigDB 2026.1.Hs), PAM50 genes removed, saved
+     as a separate list.
+  3. Author approval; rename this file and both list files to FROZEN with a time stamp; post on
+     OSF; then run s21_amendment8.py in mode "run".

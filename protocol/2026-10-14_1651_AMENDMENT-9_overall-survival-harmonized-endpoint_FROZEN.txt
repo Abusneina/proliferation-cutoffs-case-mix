@@ -1,0 +1,102 @@
+PROTOCOL AMENDMENT 9  -  OVERALL SURVIVAL AS A COMMON ENDPOINT (LIMITATION: DIFFERING ENDPOINTS)  -  FROZEN
+Drafted: 2026-10-14 16:48 UTC+2. Author: Abdelmuhsen M. Abusneina.
+Status: FROZEN 2026-10-14 16:51 UTC+2 (author approval given 2026-10-14 16:51). Binding once posted on OSF
+(osf.io/cwkd9) BEFORE any overall-survival comparison between cut-off groups is computed in
+TCGA-BRCA or METABRIC, and before the in-zone analysis (D3) is computed in SCAN-B.
+
+WHY THIS AMENDMENT
+  The discordant-group outcome analyses used different endpoints: progression-free interval in
+  TCGA-BRCA, disease-specific survival derived from vital status in METABRIC (Amendment 2), and
+  overall survival in SCAN-B, the only outcome released there (Amendments 3 and 4). The pooled
+  estimates of Amendment 4 therefore combine different quantities. Overall survival is released
+  in all three cohorts. This amendment repeats the registered group comparisons with overall
+  survival everywhere, so that the cohorts can be compared and pooled on one endpoint.
+
+DISCLOSED PRIOR KNOWLEDGE (results already known at drafting)
+  - Amendment 2 (D1 to D5) in TCGA-BRCA (progression-free interval) and METABRIC (derived
+    disease-specific survival), both scores. METABRIC P2: STABLE_A vs DISCORDANT HR 0.66
+    (0.50 to 0.86); STABLE_B vs DISCORDANT HR 1.23 (0.92 to 1.63). TCGA-BRCA: 12 events in the
+    discordant group.
+  - Amendments 3 and 4 in SCAN-B (overall survival), both scores, primary and grade-adjusted.
+    P2: STABLE_A vs DISCORDANT HR 0.77 (0.53 to 1.14); STABLE_B vs DISCORDANT HR 1.20 (0.80 to
+    1.81). These SCAN-B C1 estimates already use overall survival and are carried into this
+    amendment unchanged; they are not re-estimated.
+  - Field availability only: OS_STATUS and OS_MONTHS are complete for all 573 TCGA-BRCA and all
+    1,397 METABRIC patients analyzed. No overall-survival event count by group, and no
+    overall-survival model, has been computed in either cohort.
+  - Code test (s22_amendment9.py, mode "dryrun", 2026-10-14 16:49): outcomes were randomly
+    permuted within each cohort before any model was fitted, so no real group-outcome
+    association was computed. The test revealed only cohort totals of overall-survival deaths:
+    TCGA-BRCA 54 of 573, METABRIC 811 of 1,397, SCAN-B 217 of 2,425 (the last already known).
+    METABRIC (58% deaths, long follow-up) will dominate the pooled estimate, and many of its
+    deaths are from other causes.
+  - The METABRIC disease-specific events are a subset of its overall-survival events (deaths
+    from breast cancer within all deaths), and the follow-up time is the same. The METABRIC
+    overall-survival result is therefore partly predictable from the known result and is not
+    independent evidence.
+  - The in-zone continuous analysis (D3) has never been run in SCAN-B.
+
+WHAT IS NEW
+  (i) TCGA-BRCA and METABRIC with overall survival, analyses D1, D3, D4 and D5 of Amendment 2.
+  (ii) SCAN-B analyses D3 and D4 (overall survival). D1 in SCAN-B is the registered C1 result.
+  (iii) Pooled estimates on a single endpoint.
+
+DESIGN (all elements as already registered; only the endpoint changes)
+  Patients, scores (P1, P2), percentile cut-offs (P2: 59th and 74th; P1: 64th and 77th, computed
+  within each cohort's ER-positive, HER2-negative stratum), group definitions (STABLE_A,
+  DISCORDANT, STABLE_B), Cox models, equivalence margin [0.67, 1.50], and covariate-dropping rule
+  exactly as in Amendment 2 (TCGA-BRCA, METABRIC) and Amendment 4 (SCAN-B).
+  Endpoint: overall survival, death from any cause.
+    TCGA-BRCA  OS_MONTHS, event = OS_STATUS "1:DECEASED".
+    METABRIC   OS_MONTHS, event = OS_STATUS "1:DECEASED".
+    SCAN-B     overall survival days / 30.4375, event = overall survival event (as registered).
+  Adjustment: age and stage group (TCGA-BRCA, METABRIC); age, tumor size and nodal group
+  (SCAN-B). Grade-adjusted models in SCAN-B as a sensitivity analysis, as registered.
+  P2 primary, P1 reported alongside.
+
+PRE-SPECIFIED ANALYSES
+  O1  Per cohort, D1: STABLE_A vs DISCORDANT and STABLE_B vs DISCORDANT, HR and 95% CI.
+  O2  Pooled estimate on overall survival, inverse-variance fixed effect on the adjusted log
+      hazard ratios, one estimate per cohort, for STABLE_A vs DISCORDANT (C1a) and STABLE_B vs
+      DISCORDANT (C1b).
+        Primary pooled set: TCGA-BRCA + METABRIC + SCAN-B.
+        Sensitivity: METABRIC + SCAN-B; DerSimonian-Laird random effects with I-squared.
+  O3  D3 in each cohort: continuous score (standardized within the discordant group) inside the
+      discordant group, adjusted as above, with the D3 model in the whole cohort for contrast.
+  O4  D4 trend across the three ordered groups in each cohort.
+  O5  D5 number and percentage in the discordant group and overall-survival events by group.
+
+DECISION RULES
+  For pooled C1b (primary set, P2), as in Amendments 3 and 4:
+    CI inside [0.67, 1.50]                    -> "B-like supported on a common endpoint"
+    CI includes 1 but extends beyond margin   -> "inconclusive"
+    CI excludes 1                             -> "refuted" (the discordant group differs from
+                                                 stable luminal B-like)
+  For pooled C1a (primary set, P2): reported as HR and CI; a CI wholly below 1 is read as
+    "discordant group has worse overall survival than stable luminal A-like".
+  For O3, rule R1 of Amendment 2 applies per cohort (p > 0.05 AND CI within [0.67, 1.50] for a
+    cohort to be called prognostically empty in the zone); R2 and R3 apply unchanged.
+  Multiplicity: Benjamini-Hochberg at FDR 0.05 within cohort over O1, O3 and O4, as in R4.
+
+STATUS OF THE RESULTS
+  Overall survival is a secondary endpoint. The registered per-cohort results with their
+  original endpoints remain the primary outcome evidence and are not replaced. Where the two
+  disagree, both are reported. Overall survival includes deaths from other causes, which dilutes
+  contrasts that act through breast cancer; this is stated in advance, and an attenuated
+  overall-survival hazard ratio is not read as evidence against the primary result. TCGA-BRCA
+  is expected to contribute few events and little weight. No survival analysis with P3 or P4
+  (Amendment 8) is done.
+
+WHAT WILL NOT BE DONE
+  No change to cut-offs, group definitions, covariates, margin or pooling method. No
+  cause-specific or competing-risks model is added after results are seen. No endpoint other
+  than overall survival is introduced.
+
+ANALYSIS CODE
+  code/s22_amendment9.py, mode "run", which refuses to start unless this file carries FROZEN in
+  its name. Progress is printed throughout.
+
+ITEMS TO COMPLETE BEFORE FREEZING
+  1. DONE 2026-10-14 16:51: author approval given.
+  2. DONE 2026-10-14 16:51: renamed FROZEN with a time stamp. Remaining: post on OSF together with the
+     Amendment 8 files; then run s22_amendment9.py in mode "run".

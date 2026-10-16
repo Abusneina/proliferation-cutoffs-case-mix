@@ -1,0 +1,75 @@
+PROTOCOL AMENDMENT 2  -  FROZEN PRE-SPECIFICATION
+Study: Sensitivity of surrogate luminal A vs luminal B assignment to the proliferation cut-off
+Frozen: 2026-10-13 15:45 UTC+2, BEFORE any outcome comparison between discordant-zone groups.
+Author: Abdelmuhsen M. Abusneina
+
+STATUS OF WHAT IS ALREADY KNOWN AT FREEZE TIME
+  Analyses A1-A6 are complete. Their results are known and are listed here so that it is
+  explicit which quantities informed this amendment:
+    - kappa-optimal percentile, P2: TCGA 74th, METABRIC 59th
+    - kappa-optimal percentile, P1: TCGA 77th, METABRIC 64th
+    - luminal-B prevalence at own optimum: TCGA 26%, METABRIC 41%
+    - transfer loss (percentile) 0.08-0.09 kappa; (absolute) 0.14-0.17 kappa
+  NO outcome comparison involving a discordant group has been computed. The group
+  definition below is derived from agreement with PAM50 only, never from survival.
+
+RATIONALE
+  A1-A6 establish that the optimal cut-off is cohort-specific. That is a statement about
+  classification. It does not establish whether the disagreement matters prognostically.
+  If the band of proliferation values over which cohorts disagree carries no prognostic
+  information, then the choice of threshold inside that band is arbitrary in the only
+  sense that matters clinically, because the luminal A/B split governs the adjuvant
+  chemotherapy recommendation.
+
+GROUP DEFINITION (fixed, derived from A3 agreement only)
+  For each cohort and each score S, let c_low and c_high be the LOWER and HIGHER of the
+  two cohort-specific kappa-optimal percentiles established in A3, computed within that
+  cohort's own ER-positive/HER2-negative stratum:
+      P2: c_low = 59th percentile, c_high = 74th percentile
+      P1: c_low = 64th percentile, c_high = 77th percentile
+  Each patient is assigned to exactly one group:
+      STABLE_A     S <= c_low        luminal A-like under either threshold
+      DISCORDANT   c_low < S <= c_high   label depends on which threshold is used
+      STABLE_B     S >  c_high       luminal B-like under either threshold
+
+PRE-SPECIFIED ANALYSES
+  D1  Three-group Cox model, DISCORDANT as the reference category, adjusted for age and
+      stage, in each cohort and for each score. Report HR and 95% CI for STABLE_A vs
+      DISCORDANT and STABLE_B vs DISCORDANT.
+  D2  Equivalence assessment. Absence of significance is not evidence of absence, so the
+      confidence interval is the quantity reported, not the p-value. Equivalence margin
+      fixed here at HR within [0.67, 1.50].
+  D3  THE DECISIVE TEST. Within the DISCORDANT group only, fit a Cox model with the
+      CONTINUOUS score S as the predictor, adjusted for age and stage. If the continuous
+      score does not predict outcome inside the zone, then no threshold placed inside the
+      zone can separate prognosis, and the zone is uninformative by construction.
+  D4  Trend test across the three ordered groups, to establish whether the relationship is
+      monotone or flat in the middle.
+  D5  Clinical translation. Report the number and percentage of the ER-positive,
+      HER2-negative cohort falling in DISCORDANT, i.e. the proportion of patients whose
+      adjuvant chemotherapy recommendation depends on which threshold the laboratory used.
+
+DECISION RULES, FIXED BEFORE EXECUTION
+  R1  The discordant zone is declared PROGNOSTICALLY EMPTY only if ALL of the following
+      hold, in BOTH cohorts, for BOTH scores:
+        (a) D3 continuous-score coefficient inside the zone has p > 0.05, AND
+        (b) the D3 hazard ratio per standard deviation has a 95% CI contained within
+            the equivalence margin [0.67, 1.50].
+      Criterion (b) is required so that a null is claimed only when the data are precise
+      enough to exclude a clinically meaningful effect.
+  R2  If D3 is significant in any cohort, the zone is NOT empty, and the finding is
+      reported as the opposite: the discordant band carries prognostic information and the
+      threshold placement within it is consequential. This outcome is publishable and will
+      be reported with equal prominence.
+  R3  A result present in one cohort only is reported as cohort-specific, never as replicated.
+  R4  Multiplicity: D1, D3 and D4 constitute one family per cohort; Benjamini-Hochberg at
+      FDR 0.05 within cohort.
+  R5  No alternative definition of c_low or c_high will be substituted after results are
+      seen. Sensitivity analyses using other spans may be added only as explicitly labelled
+      post hoc exploration, never as a replacement for the above.
+
+ANTICIPATED LIMITATION, STATED IN ADVANCE
+  The DISCORDANT group is by construction intermediate in proliferation, so an intermediate
+  hazard is the expected result and is not itself informative. The informative quantity is
+  D3: whether proliferation predicts outcome WITHIN the band. This is stated now so that an
+  intermediate hazard is not later presented as though it were the finding.

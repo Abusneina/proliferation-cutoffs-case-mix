@@ -1,0 +1,124 @@
+[    0.0s] ======================================================================
+[    0.0s] TCGA
+[    5.9s]   TCGA: 10000 rows scanned, 140 symbols kept
+[   11.6s]   TCGA: 20000 rows scanned, 288 symbols kept
+[   11.8s]   TCGA: 292/326 genes; aliases ['DDX39A->DDX39', 'H2AX->H2AFX', 'H2AZ1->H2AFZ', 'H2AZ2->H2AFV', 'H2BC12->HIST1H2BK', 'JPT1->HN1', 'KMT5A->SETD8', 'KNL1->CASC5', 'MAP3K20->ZAK', 'NSD2->WHSC1', 'ORC5->ORC5L', 'PRP4K->PRPF4B', 'SRSF1->SFRS1', 'SRSF10->SFRS13A', 'SRSF2->SFRS2', 'TENT4A->PAPD7']; missing []
+[   12.6s]   TCGA P1: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[   13.7s]      bootstrap 500/2000
+[   14.7s]      bootstrap 1000/2000
+[   15.6s]      bootstrap 1500/2000
+[   18.8s]   TCGA P1: LumB 26.1% target 73.9 | kappa-opt pct 77 (peak kappa 0.551 [0.476, 0.643]) | Youden LumA-q 80 | slopes kappa 0.93, Youden -0.00
+[   18.8s]   TCGA P2: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[   19.8s]      bootstrap 500/2000
+[   20.7s]      bootstrap 1000/2000
+[   21.5s]      bootstrap 1500/2000
+[   24.9s]   TCGA P2: LumB 26.1% target 73.9 | kappa-opt pct 74 (peak kappa 0.654 [0.584, 0.729]) | Youden LumA-q 82 | slopes kappa 1.01, Youden 0.00
+[   24.9s]   TCGA P3: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[   25.8s]      bootstrap 500/2000
+[   26.7s]      bootstrap 1000/2000
+[   27.6s]      bootstrap 1500/2000
+[   31.4s]   TCGA P3: LumB 26.1% target 73.9 | kappa-opt pct 74 (peak kappa 0.622 [0.555, 0.706]) | Youden LumA-q 82 | slopes kappa 1.06, Youden -0.00
+[   31.4s]   TCGA P3m: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[   32.5s]      bootstrap 500/2000
+[   33.5s]      bootstrap 1000/2000
+[   34.4s]      bootstrap 1500/2000
+[   38.2s]   TCGA P3m: LumB 26.1% target 73.9 | kappa-opt pct 74 (peak kappa 0.590 [0.517, 0.679]) | Youden LumA-q 78 | slopes kappa 0.96, Youden 0.03
+[   38.2s]   TCGA P4: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[   39.2s]      bootstrap 500/2000
+[   40.2s]      bootstrap 1000/2000
+[   41.0s]      bootstrap 1500/2000
+[   45.1s]   TCGA P4: LumB 26.1% target 73.9 | kappa-opt pct 76 (peak kappa 0.664 [0.590, 0.737]) | Youden LumA-q 93 | slopes kappa 0.73, Youden -0.02
+[   45.1s] ======================================================================
+[   45.1s] METABRIC
+[   68.5s]   METABRIC: 10000 rows scanned, 133 symbols kept
+[   92.0s]   METABRIC: 20000 rows scanned, 282 symbols kept
+[   93.4s]   METABRIC: 291/326 genes; aliases ['ORC6L->ORC6', 'KIAA0101->PCLAF', 'C21orf45->MIS18A', 'DDX39->DDX39A', 'MLF1IP->CENPU', 'SFRS2->SRSF2', 'PRP4K->PRPF4B']; missing ['CKLF']
+[   94.8s]   METABRIC P1: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[   96.0s]      bootstrap 500/2000
+[   97.1s]      bootstrap 1000/2000
+[   98.6s]      bootstrap 1500/2000
+[  103.3s]   METABRIC P1: LumB 38.9% target 61.1 | kappa-opt pct 64 (peak kappa 0.446 [0.401, 0.505]) | Youden LumA-q 74 | slopes kappa 1.05, Youden 0.00
+[  103.3s]   METABRIC P2: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  104.5s]      bootstrap 500/2000
+[  105.7s]      bootstrap 1000/2000
+[  106.8s]      bootstrap 1500/2000
+[  111.3s]   METABRIC P2: LumB 38.9% target 61.1 | kappa-opt pct 59 (peak kappa 0.666 [0.626, 0.712]) | Youden LumA-q 84 | slopes kappa 1.07, Youden -0.00
+[  111.3s]   METABRIC P3: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  112.2s]      bootstrap 500/2000
+[  113.6s]      bootstrap 1000/2000
+[  114.7s]      bootstrap 1500/2000
+[  118.8s]   METABRIC P3: LumB 38.9% target 61.1 | kappa-opt pct 59 (peak kappa 0.662 [0.624, 0.707]) | Youden LumA-q 82 | slopes kappa 1.13, Youden -0.01
+[  118.8s]   METABRIC P3m: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  120.0s]      bootstrap 500/2000
+[  121.1s]      bootstrap 1000/2000
+[  122.2s]      bootstrap 1500/2000
+[  126.8s]   METABRIC P3m: LumB 38.9% target 61.1 | kappa-opt pct 61 (peak kappa 0.655 [0.615, 0.704]) | Youden LumA-q 83 | slopes kappa 1.07, Youden -0.01
+[  126.8s]   METABRIC P4: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  128.3s]      bootstrap 500/2000
+[  129.6s]      bootstrap 1000/2000
+[  130.8s]      bootstrap 1500/2000
+[  135.0s]   METABRIC P4: LumB 38.9% target 61.1 | kappa-opt pct 62 (peak kappa 0.630 [0.589, 0.680]) | Youden LumA-q 85 | slopes kappa 1.04, Youden -0.06
+[  135.0s] ======================================================================
+[  135.0s] SCAN-B
+[  152.3s]   SCAN-B: 10000 rows scanned, 67 symbols kept
+[  169.4s]   SCAN-B: 20000 rows scanned, 159 symbols kept
+[  189.1s]   SCAN-B: 30000 rows scanned, 286 symbols kept
+[  191.1s]   SCAN-B: 291/326 genes; aliases ['ORC6L->ORC6', 'C21orf45->MIS18A', 'DDX39->DDX39A', 'MLF1IP->CENPU', 'SFRS2->SRSF2', 'H2AX->H2AFX', 'H2AZ1->H2AFZ', 'H2AZ2->H2AFV', 'H2BC12->HIST1H2BK', 'JPT1->HN1', 'KMT5A->SETD8', 'KNL1->CASC5', 'MAP3K20->ZAK', 'NSD2->WHSC1', 'PRP4K->PRPF4B', 'TENT4A->PAPD7']; missing ['H3F3A']
+[  192.7s]   SCAN-B P1: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  194.6s]      bootstrap 500/2000
+[  196.3s]      bootstrap 1000/2000
+[  198.0s]      bootstrap 1500/2000
+[  205.0s]   SCAN-B P1: LumB 29.5% target 70.5 | kappa-opt pct 66 (peak kappa 0.609 [0.572, 0.645]) | Youden LumA-q 79 | slopes kappa 0.91, Youden 0.01
+[  205.0s]   SCAN-B P2: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  206.4s]      bootstrap 500/2000
+[  207.8s]      bootstrap 1000/2000
+[  209.4s]      bootstrap 1500/2000
+[  215.5s]   SCAN-B P2: LumB 29.5% target 70.5 | kappa-opt pct 71 (peak kappa 0.724 [0.695, 0.758]) | Youden LumA-q 85 | slopes kappa 0.95, Youden 0.01
+[  215.5s]   SCAN-B P3: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  217.3s]      bootstrap 500/2000
+[  219.2s]      bootstrap 1000/2000
+[  220.9s]      bootstrap 1500/2000
+[  226.5s]   SCAN-B P3: LumB 29.5% target 70.5 | kappa-opt pct 68 (peak kappa 0.688 [0.659, 0.726]) | Youden LumA-q 85 | slopes kappa 0.89, Youden 0.00
+[  226.5s]   SCAN-B P3m: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  228.4s]      bootstrap 500/2000
+[  230.1s]      bootstrap 1000/2000
+[  232.0s]      bootstrap 1500/2000
+[  237.8s]   SCAN-B P3m: LumB 29.5% target 70.5 | kappa-opt pct 69 (peak kappa 0.674 [0.641, 0.709]) | Youden LumA-q 86 | slopes kappa 0.94, Youden -0.00
+[  237.8s]   SCAN-B P4: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  239.4s]      bootstrap 500/2000
+[  240.9s]      bootstrap 1000/2000
+[  242.4s]      bootstrap 1500/2000
+[  248.2s]   SCAN-B P4: LumB 29.5% target 70.5 | kappa-opt pct 67 (peak kappa 0.603 [0.572, 0.642]) | Youden LumA-q 82 | slopes kappa 1.05, Youden 0.01
+[  248.2s] ======================================================================
+[  248.2s] GSE81538
+[  250.4s]   GSE81538: 10000 rows scanned, 157 symbols kept
+[  253.6s]   GSE81538: 290/326 genes; aliases ['ORC6L->ORC6', 'C21orf45->MIS18A', 'DDX39->DDX39A', 'SFRS2->SRSF2', 'H2AX->H2AFX', 'H2AZ1->H2AFZ', 'H2AZ2->H2AFV', 'H2BC12->HIST1H2BK', 'JPT1->HN1', 'KMT5A->SETD8', 'KNL1->CASC5', 'MAP3K20->ZAK', 'NSD2->WHSC1', 'PRP4K->PRPF4B', 'TENT4A->PAPD7']; missing ['H3F3A', 'PTTG3P']
+[  254.1s]   GSE81538 P1: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  254.9s]      bootstrap 500/2000
+[  255.7s]      bootstrap 1000/2000
+[  256.5s]      bootstrap 1500/2000
+[  259.7s]   GSE81538 P1: LumB 36.6% target 63.4 | kappa-opt pct 61 (peak kappa 0.464 [0.394, 0.595]) | Youden LumA-q 72 | slopes kappa 1.25, Youden 0.01
+[  259.7s]   GSE81538 P2: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  260.5s]      bootstrap 500/2000
+[  261.4s]      bootstrap 1000/2000
+[  262.0s]      bootstrap 1500/2000
+[  265.3s]   GSE81538 P2: LumB 36.6% target 63.4 | kappa-opt pct 65 (peak kappa 0.688 [0.603, 0.788]) | Youden LumA-q 89 | slopes kappa 0.98, Youden -0.01
+[  265.3s]   GSE81538 P3: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  266.2s]      bootstrap 500/2000
+[  267.0s]      bootstrap 1000/2000
+[  267.8s]      bootstrap 1500/2000
+[  270.9s]   GSE81538 P3: LumB 36.6% target 63.4 | kappa-opt pct 64 (peak kappa 0.615 [0.538, 0.733]) | Youden LumA-q 86 | slopes kappa 1.05, Youden 0.02
+[  270.9s]   GSE81538 P3m: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  271.6s]      bootstrap 500/2000
+[  272.4s]      bootstrap 1000/2000
+[  273.2s]      bootstrap 1500/2000
+[  276.4s]   GSE81538 P3m: LumB 36.6% target 63.4 | kappa-opt pct 60 (peak kappa 0.632 [0.540, 0.738]) | Youden LumA-q 85 | slopes kappa 1.04, Youden 0.03
+[  276.4s]   GSE81538 P4: kappa sweep, 2,000 bootstraps, 7 x 200 resamples ...
+[  277.4s]      bootstrap 500/2000
+[  278.3s]      bootstrap 1000/2000
+[  279.2s]      bootstrap 1500/2000
+[  282.4s]   GSE81538 P4: LumB 36.6% target 63.4 | kappa-opt pct 61 (peak kappa 0.520 [0.437, 0.646]) | Youden LumA-q 78 | slopes kappa 0.97, Youden -0.00
+[  282.5s] DECISION P3: CONFIRMED FOR A GENE-DISJOINT SCORE  {'TCGA': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}, 'METABRIC': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}, 'SCAN-B': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}}  G4=True
+[  282.5s] DECISION P3m: CONFIRMED FOR A GENE-DISJOINT SCORE  {'TCGA': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}, 'METABRIC': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}, 'SCAN-B': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}}  G4=True
+[  282.5s] DECISION P4: CONFIRMED FOR A GENE-DISJOINT SCORE  {'TCGA': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}, 'METABRIC': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}, 'SCAN-B': {'G1': np.True_, 'G2': np.True_, 'G3': np.True_}}  G4=True
+[  282.5s] done.

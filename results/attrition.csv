@@ -1,0 +1,13 @@
+step,n_remaining,n_dropped
+start: PanCanAtlas patients,1084,0
+female,1072,12
+expression available,1070,2
+ER positive by IHC,782,288
+HER2 negative (IHC/FISH rule),574,208
+PFS time and status present,573,1
+---,0,0
+start: METABRIC patients,2509,0
+expression available,1980,529
+ER positive,1506,474
+HER2 negative,1398,108
+vital status and OS time present,1397,1

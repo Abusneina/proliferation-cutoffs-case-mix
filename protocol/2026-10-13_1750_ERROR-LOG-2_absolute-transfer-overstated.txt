@@ -1,0 +1,19 @@
+ERROR LOG 2  -  interpretation error in A5 ("transport the rank, not the number")
+Recorded: 2026-10-13 17:50 UTC+2.
+
+WHAT WAS CLAIMED (chat summary of 13 Oct, not yet in any manuscript text)
+  Transferring a threshold as an absolute value costs about twice as much agreement as
+  transferring it as a percentile, so laboratories should "transport the rank, not the number".
+
+WHY IT IS OVERSTATED
+  The "absolute" arm of A5 transferred the threshold on the within-stratum z-score scale,
+  which is itself a relative scale. Raw expression cannot be transferred between RNA-seq
+  (TCGA RSEM, SCAN-B FPKM) and microarray (METABRIC) at all. The z-versus-percentile gap
+  therefore measures differences in distribution SHAPE between cohorts (e.g. MKI67 skew
+  -0.47 in TCGA vs +0.89 in METABRIC), not the cost of carrying a raw value between labs.
+
+WHAT REMAINS TRUE
+  Across all 8 transfer comparisons (TCGA<->METABRIC and both into SCAN-B), the z-scale
+  transfer lost at least as much agreement as the percentile transfer. Reportable as:
+  "distribution shape differs between cohorts, so even a standardized threshold does not
+  carry over". The laboratory-practice recommendation is withdrawn.

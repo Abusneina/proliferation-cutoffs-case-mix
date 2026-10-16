@@ -1,0 +1,53 @@
+[   0.0s] ======================================================================
+[   0.0s] TCGA: n=573, overall-survival deaths=54
+[   0.0s]   P2 zone 59-74: STABLE_A n=338 deaths=28, DISCORDANT n=86 deaths=7, STABLE_B n=149 deaths=19
+[   0.1s]   [O1] P2 STABLE_A vs DISC: HR 0.88 [0.38, 2.05] p=0.773 n=424 deaths=35
+[   0.1s]   [O1] P2 STABLE_B vs DISC: HR 1.50 [0.62, 3.59] p=0.368 n=235 deaths=26
+[   0.1s]   [O3] P2 in zone: HR/SD 1.70 [0.78, 3.71] p=0.184 deaths=7 -> R1 empty: False
+[   0.2s]   [O4] P2 trend: HR/step 1.35 [1.00, 1.82] p=0.0477
+[   0.2s]   P1 zone 64-77: STABLE_A n=367 deaths=31, DISCORDANT n=74 deaths=6, STABLE_B n=132 deaths=17
+[   0.2s]   [O1] P1 STABLE_A vs DISC: HR 0.74 [0.30, 1.81] p=0.513 n=441 deaths=37
+[   0.3s]   [O1] P1 STABLE_B vs DISC: HR 1.23 [0.47, 3.18] p=0.677 n=206 deaths=23
+[   0.3s]   [O3] P1 in zone: HR/SD 1.08 [0.49, 2.38] p=0.855 deaths=6 -> R1 empty: False
+[   0.3s]   [O4] P1 trend: HR/step 1.27 [0.94, 1.72] p=0.115
+[   0.4s] ======================================================================
+[   0.4s] METABRIC: n=1397, overall-survival deaths=811
+[   0.4s]   P2 zone 59-74: STABLE_A n=824 deaths=429, DISCORDANT n=210 deaths=144, STABLE_B n=363 deaths=238
+[   0.6s]   [O1] P2 STABLE_A vs DISC: HR 0.76 [0.63, 0.92] p=0.00574 n=1034 deaths=573
+[   0.9s]   [O1] P2 STABLE_B vs DISC: HR 1.03 [0.84, 1.27] p=0.757 n=573 deaths=382
+[   0.9s]   [O3] P2 in zone: HR/SD 1.04 [0.88, 1.22] p=0.643 deaths=144 -> R1 empty: True
+[   1.5s]   [O4] P2 trend: HR/step 1.18 [1.09, 1.27] p=4.66e-05
+[   1.5s]   P1 zone 64-77: STABLE_A n=894 deaths=471, DISCORDANT n=181 deaths=118, STABLE_B n=322 deaths=222
+[   1.8s]   [O1] P1 STABLE_A vs DISC: HR 0.80 [0.65, 0.97] p=0.0273 n=1075 deaths=589
+[   1.9s]   [O1] P1 STABLE_B vs DISC: HR 0.99 [0.79, 1.24] p=0.96 n=503 deaths=340
+[   2.0s]   [O3] P1 in zone: HR/SD 1.01 [0.83, 1.23] p=0.923 deaths=118 -> R1 empty: True
+[   2.6s]   [O4] P1 trend: HR/step 1.12 [1.04, 1.22] p=0.00347
+[   2.6s] ======================================================================
+[   2.6s] SCAN-B: n=2425, overall-survival deaths=217
+[   2.6s]   P2 zone 59-74: STABLE_A n=1431 deaths=107, DISCORDANT n=363 deaths=38, STABLE_B n=631 deaths=72
+[   2.6s]   [O1] P2 STABLE_A vs DISC (registered C1, carried over): HR 0.77 [0.53, 1.14]
+[   2.6s]   [O1] P2 STABLE_B vs DISC (registered C1, carried over): HR 1.20 [0.80, 1.81]
+[   2.6s]   [O3] P2 in zone: HR/SD 0.96 [0.70, 1.32] p=0.809 deaths=36 -> R1 empty: True
+[   3.0s]   [O4] P2 trend: HR/step 1.27 [1.08, 1.48] p=0.00292
+[   3.0s]   P1 zone 64-77: STABLE_A n=1552 deaths=128, DISCORDANT n=315 deaths=32, STABLE_B n=558 deaths=57
+[   3.1s]   [O1] P1 STABLE_A vs DISC (registered C1, carried over): HR 0.90 [0.60, 1.34]
+[   3.1s]   [O1] P1 STABLE_B vs DISC (registered C1, carried over): HR 1.19 [0.76, 1.87]
+[   3.1s]   [O3] P1 in zone: HR/SD 1.09 [0.76, 1.57] p=0.641 deaths=30 -> R1 empty: False
+[   3.7s]   [O4] P1 trend: HR/step 1.18 [1.00, 1.38] p=0.0453
+[   3.7s] [O2] P2 C1a all three (primary)  fixed : HR 0.77 [0.65, 0.91] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P2 C1a all three (primary)  random: HR 0.77 [0.65, 0.91] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P2 C1a METABRIC+SCAN-B      fixed : HR 0.77 [0.65, 0.91] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P2 C1a METABRIC+SCAN-B      random: HR 0.77 [0.65, 0.91] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P2 C1b all three (primary)  fixed : HR 1.08 [0.90, 1.30] I2=0% B-like supported on a common endpoint
+[   3.7s] [O2] P2 C1b all three (primary)  random: HR 1.08 [0.90, 1.30] I2=0% B-like supported on a common endpoint
+[   3.7s] [O2] P2 C1b METABRIC+SCAN-B      fixed : HR 1.07 [0.88, 1.28] I2=0% B-like supported on a common endpoint
+[   3.7s] [O2] P2 C1b METABRIC+SCAN-B      random: HR 1.07 [0.88, 1.28] I2=0% B-like supported on a common endpoint
+[   3.7s] [O2] P1 C1a all three (primary)  fixed : HR 0.81 [0.68, 0.97] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P1 C1a all three (primary)  random: HR 0.81 [0.68, 0.97] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P1 C1a METABRIC+SCAN-B      fixed : HR 0.82 [0.68, 0.98] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P1 C1a METABRIC+SCAN-B      random: HR 0.82 [0.68, 0.98] I2=0% discordant worse than stable A-like
+[   3.7s] [O2] P1 C1b all three (primary)  fixed : HR 1.04 [0.85, 1.26] I2=0% B-like supported on a common endpoint
+[   3.7s] [O2] P1 C1b all three (primary)  random: HR 1.04 [0.85, 1.26] I2=0% B-like supported on a common endpoint
+[   3.7s] [O2] P1 C1b METABRIC+SCAN-B      fixed : HR 1.03 [0.84, 1.26] I2=0% B-like supported on a common endpoint
+[   3.7s] [O2] P1 C1b METABRIC+SCAN-B      random: HR 1.03 [0.84, 1.26] I2=0% B-like supported on a common endpoint
+[   3.7s] done.

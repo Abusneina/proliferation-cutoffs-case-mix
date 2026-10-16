@@ -1,0 +1,45 @@
+# FROZEN PRE-ANALYSIS GENE LIST
+# Study: Sensitivity of surrogate luminal A vs luminal B assignment to the proliferation cut-off
+# Frozen: 2026-10-13 15:15 UTC+2
+# Status: fixed before any expression value was read into analysis. File structure
+#         (header rows, gene symbols) was inspected beforehand; no expression value
+#         entered any computation prior to this freeze.
+#
+# P1, single-gene operationalization
+MKI67
+#
+# P2, multi-gene operationalization.
+# Proliferation-associated genes of the PAM50 classifier (Parker et al. 2009,
+# J Clin Oncol 27:1160-1167). MKI67 is DELIBERATELY EXCLUDED from P2 so that P1
+# and P2 are non-nested and their comparison is not confounded by a shared gene.
+# Score = mean of within-stratum standardized expression across these 18 genes.
+##P2_START
+ANLN
+BIRC5
+CCNB1
+CDC20
+CENPF
+CEP55
+EXO1
+KIF2C
+MELK
+MYBL2
+NDC80
+NUF2
+ORC6L
+PTTG1
+RRM2
+TYMS
+UBE2C
+UBE2T
+##P2_END
+#
+# SYMBOL ALIASES (platform differences, resolved at load time)
+# ORC6L = ORC6     TCGA uses ORC6L; METABRIC uses ORC6 (current HGNC symbol)
+# NDC80 = KNTC2    both matrices use NDC80
+# NUF2  = CDCA1    both matrices use NUF2
+#
+# COHORT-DEFINING GENES (not part of P1 or P2; carried for description only)
+ESR1
+PGR
+ERBB2

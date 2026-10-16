@@ -1,0 +1,36 @@
+PROTOCOL DEVIATION 1  -  Literature search run before OSF registration
+Systematic review: Does the luminal B share of a study population predict the Ki-67 cut-off it
+reports as optimal? (protocol v1.0)
+Recorded: 2026-10-13 21:40 UTC+2
+
+WHAT THE PROTOCOL SAID
+  "To be registered on the Open Science Framework before the search is executed."
+
+WHAT HAPPENED
+  The protocol was frozen at 2026-10-13 19:40 UTC+2. The file has not changed since.
+    File:    2026-10-13_1940_Protocol_Ki67-cutoff-vs-luminalB-share_SR-metaregression_v1.0.docx
+    MD5:     a16d2aedb9da0a8baf1213fdfb7283f4
+    SHA-256: 4d3ec22812f7e871fc6f6dc2cb53293c7bd35d60979f5b3de1d69ef31589e253
+  At 19:58 the investigator reported that OSF registration was done. That referred to creating
+  an OSF account. The protocol itself had not been registered. The AI assistant took the report
+  as meaning the protocol was registered and did not ask for the registration link before searching.
+  On that basis the following steps were carried out before registration:
+    - PubMed search (~20:05) and Europe PMC search (~21:45), as logged in SEARCH-LOG.txt
+    - title and abstract screening of 183 records (AI-assisted first pass)
+
+WHAT HAD NOT HAPPENED AT THE TIME OF THIS RECORD
+  No full text has been read. No data have been extracted, including Pass 1 (design) and Pass 2
+  (cut-off). No analysis has been run. The protocol has not been changed.
+
+CONSEQUENCE
+  The registration will predate full-text eligibility assessment, all extraction and all analysis.
+  It will not predate the search or the title/abstract screening, and the paper will not claim that
+  it does. Running a search and screening abstracts gives limited opportunity to bias a pre-specified
+  meta-regression, because neither step involves the outcome data. Abstracts that state a cut-off
+  are the exception: they reveal the outcome. That exposure is already disclosed in SEARCH-LOG.txt
+  and is handled by requiring a blinded human Pass 1.
+
+ACTION
+  1. Register protocol v1.0 on OSF without changes, with this deviation note attached.
+  2. Pause full-text review until the registration exists.
+  3. Report this deviation in the Methods section and in the PRISMA flow notes.
