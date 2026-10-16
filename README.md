@@ -24,8 +24,9 @@ The timing of every frozen document, and what was known when each was frozen, is
 |---|---|
 | `code/` | Analysis scripts, archived exactly as run (see "Paths" below) |
 | `code/aux/` | Gene-symbol availability check and draft gene lists used for Amendment 8 |
-| `protocol/` | Frozen gene list, Amendments 2 to 10 (drafts and frozen versions), freeze records with SHA-256 hashes, error logs 1 to 4, search log for independent cohorts, literature-review protocol |
+| `protocol/` | Frozen gene list, Amendments 2 to 10 (drafts and frozen versions), freeze records with SHA-256 hashes, error logs 1 to 5, search log for independent cohorts, literature-review protocol |
 | `results/` | Result tables (CSV, JSON), run logs and results records for each amendment |
+| `posthoc/` | Post hoc analyses added after external review (Error Log 5), with their outputs |
 | `litreview/` | Search logs, the 183 retrieved records, screening workbooks, decisions of both reviewers, full-text first-pass extraction, citation-search logs, protocol deviation 1, the stage 2 comparison and the check of the Holm et al. 2021 cut-off rule |
 | `figures/` | Manuscript and supplementary figures (600 dpi) |
 | `data/` | TCGA-BRCA clinical files as downloaded from cBioPortal (public) |
@@ -55,6 +56,8 @@ The timing of every frozen document, and what was known when each was frozen, is
 | `s22_amendment9.py` | Amendment 9: overall survival in all cohorts, pooled | Results: overall survival |
 | `s23_amendment10.py` | Amendment 10, frozen script (SHA-256 b0df341cc4e829c7b7803f27095500894afee6eaf19eb914e1404aa413af3497) | Results: independent cohorts (registered test not done, Error Log 4) |
 | `s24_amendment10_exploratory_ER-all508.py` | Post hoc exploratory rerun of s23 with the ER field recorded for all 508 samples (one-line change) | Results: independent cohorts (exploratory) |
+| `posthoc/ph1_scale_check.py` | Post hoc (Error Log 5): observed optima as percentiles of the luminal set; resampling slope in score units and the slope of a fixed cut-off (P1, P2) | Results; Table 2; Online Resource 4, Table S22 |
+| `posthoc/ph2_score_units_P3.py` | Post hoc (Error Log 5): the same for P3 and for GSE81538, using the Amendment 8 scoring functions unchanged | Results; Online Resource 4, Table S22 |
 
 Scripts marked exploratory or post hoc were not pre-specified and are labeled as such in the manuscript.
 

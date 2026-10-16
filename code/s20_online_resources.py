@@ -144,12 +144,19 @@ tl = [
  ["15 Oct 2026", "18:27; v2 19:02", "Error Log 3", "Stated freeze times differ from save times (13 Oct documents)", "…1827_ERROR-LOG-3_…txt; …1902_ERROR-LOG-3_…_v2.txt"],
  ["", "19:38", "Amendment 10 and frozen script", "Field names, labels and gene coverage only; posted 20:19 in osf.io/cwkd9; run 20:22; registered 20:30 (osf.io/db7a8)", "…1938_AMENDMENT-10_…_FROZEN.txt; …1938_s23_amendment10_FROZEN.py"],
  ["", "20:23", "Error Log 4", "Amendment 10 ER field covers 310 of 508 samples; registered verdict not tested", "…2023_ERROR-LOG-4_Amendment-10-ER-field-covers-310-of-508.txt"],
+ ["16 Oct 2026", "11:53; updated 11:57", "Error Log 5", "Percentile scale of the resampling slope includes a fixed-cut-off component; Youden fixed by design; denominator of observed optima", "…1153_ERROR-LOG-5_percentile-scale-and-denominator.txt"],
 ]
 s.append(tbl(["Date", "Time", "Document", "State of knowledge when frozen", "File"], tl,
              [1.8*cm, 1.3*cm, 2.8*cm, 5.5*cm, 5.6*cm], merge_cols=(0,)))
 s.append(Spacer(1, 4))
 s.append(Paragraph("File integrity: the protocol file for the literature review (v1.0) has MD5 a16d2aedb9da0a8baf1213fdfb7283f4 and SHA-256 4d3ec22812f7e871fc6f6dc2cb53293c7bd35d60979f5b3de1d69ef31589e253. "
                    "SHA-256 values of all other documents are in the freeze and posting records reproduced at the end of this file.", SMALL))
+s.append(Spacer(1, 6))
+s.append(Paragraph("<b>Cohort and score definitions (moved from the article for length).</b> TCGA-BRCA receptor status came from the Firehose Legacy release; "
+    "HER2-negative status required a negative immunohistochemistry result, or an equivocal result with negative in situ hybridization. METABRIC and SCAN-B receptor status "
+    "was used as deposited. TCGA-BRCA RSEM values were log2(x + 1) transformed; METABRIC microarray values were used on their deposited log2 scale; SCAN-B values were the "
+    "deposited gene-level estimates, computed by the submitters as log2(FPKM + 0.1), without further transformation. Where a gene had two rows (BIRC5 in METABRIC), the last "
+    "row was used. The 18 genes of P2 are listed in the frozen gene list reproduced below; P3 and P4 lists follow Amendment 8.", BODY))
 order = ["2026-10-13_1515_proliferation_gene_list_FROZEN.txt", "2026-10-13_1545_AMENDMENT-2_discordant-zone_FROZEN.txt",
          "2026-10-13_1630_AMENDMENT-3_SCAN-B-confirmatory_FROZEN.txt", "2026-10-13_1620_ERROR-LOG-1_D3-range-restriction.txt",
          "2026-10-13_1605_AMENDMENT-4_pooled-C1-and-SCANB-adjustment_FROZEN.txt", "2026-10-13_1735_AMENDMENT-5_SCANB-sweep-and-transfer_FROZEN.txt",
@@ -162,7 +169,7 @@ order = ["2026-10-13_1515_proliferation_gene_list_FROZEN.txt", "2026-10-13_1545_
          "2026-10-15_1827_ERROR-LOG-3_stated-freeze-times-vs-file-times.txt", "2026-10-15_1902_ERROR-LOG-3_stated-freeze-times-vs-file-times_v2.txt",
          "2026-10-15_1826_POSTING-RECORD_gene-list-amendments-2-6-error-logs_sha256.txt",
          "2026-10-15_1938_AMENDMENT-10_independent-RNA-cohort-GSE25066_FROZEN.txt", "2026-10-15_1938_FREEZE-RECORD_AMENDMENT-10_sha256.txt",
-         "2026-10-15_2023_ERROR-LOG-4_Amendment-10-ER-field-covers-310-of-508.txt"]
+         "2026-10-15_2023_ERROR-LOG-4_Amendment-10-ER-field-covers-310-of-508.txt", "2026-10-16_1153_ERROR-LOG-5_percentile-scale-and-denominator.txt"]
 for i, f in enumerate(order):
     log(f"  ESM 1 document {i+1}/{len(order)}: {f[:60]}")
     s.append(PageBreak()); s += verbatim(f"{P}/{f}")
@@ -171,18 +178,18 @@ build("ESM_1_governance-record", s, "Online Resource 1: governance record")
 # =========================================================== ESM 2: REMARK
 log("ESM 2")
 s = head(2, "REMARK checklist",
-         "Reporting recommendations for tumor marker prognostic studies (McShane et al., 2005) [16 in the article]. "
+         "Reporting recommendations for tumor marker prognostic studies (McShane et al., 2006) [19 in the article]. "
          "The article's primary question is methodological (how the optimal cut-off depends on case mix), not the prognostic value of a marker, "
          "so items that concern prognostic modeling apply only to the secondary outcome analysis of the discordant group. "
          "Section names refer to the article.")
 rem = [
- ["1", "Marker, objectives, pre-specified hypotheses", "Reported", "Introduction; Methods, Prevalence mechanism and Fourth cohort (C1 to C3); Online Resource 1"],
- ["2", "Patient characteristics, source, inclusion and exclusion", "Reported", "Methods, Cohorts; Table 1; Online Resource 4, Table S1 (attrition)"],
+ ["1", "Marker, objectives, pre-specified hypotheses", "Reported", "Introduction; Methods, Cut-off sweep and case mix, and Registered test in GSE81538 (C1 to C3); Online Resource 1"],
+ ["2", "Patient characteristics, source, inclusion and exclusion", "Reported", "Methods, Cohorts and scores; Table 1; Online Resource 4, Table S1 (attrition)"],
  ["3", "Treatments received and how chosen", "Partly", "Endocrine therapy and chemotherapy (received or not) for METABRIC and SCAN-B, radiotherapy for METABRIC and TCGA-BRCA; cohort percentages in Results, Cohorts. Treatment was not modeled (Methods; Discussion, limitations)"],
- ["4", "Biological material, preservation, storage", "Reported by reference", "Methods, Cohorts, and the cited source publications [17 to 22]"],
- ["5", "Assay method, protocol, QC, scoring, blinding", "Reported by reference", "Methods, Proliferation scores (platform, transformation); GSE81538 Ki-67 scoring in Methods, Fourth cohort. Interlaboratory reproducibility was not assessed"],
- ["6", "Case selection, prospective or retrospective, period, median follow-up", "Partly", "Retrospective analysis of public data (Methods, Study design). Accrual period and median follow-up come from the source publications and are not re-stated"],
- ["7", "Clinical endpoints", "Reported", "Methods, Patients whose label depends on the cut-off (PFI, DSS from vital status, OS); overall survival in all three cohorts as a secondary common endpoint (Amendment 9)"],
+ ["4", "Biological material, preservation, storage", "Reported by reference", "Methods, Cohorts and scores, and the cited source publications [20 to 25]"],
+ ["5", "Assay method, protocol, QC, scoring, blinding", "Reported by reference", "Methods, Cohorts and scores, and Online Resource 1 (platform, transformation); GSE81538 Ki-67 scoring in Methods, Registered test in GSE81538. Interlaboratory reproducibility was not assessed"],
+ ["6", "Case selection, prospective or retrospective, period, median follow-up", "Partly", "Retrospective analysis of public data (Methods, Design and reporting). Accrual period and median follow-up come from the source publications and are not re-stated"],
+ ["7", "Clinical endpoints", "Reported", "Methods, Patients whose label depends on the cut-off (PFI, DSS as death from breast cancer recorded in vital status, OS); overall survival in all three cohorts as a secondary common endpoint (Amendment 9)"],
  ["8", "Candidate variables considered", "Reported", "Cox models adjusted for age and stage or age, tumor size and nodal group; grade as sensitivity analysis (Methods)"],
  ["9", "Sample size rationale", "Reported", "No sample size calculation. Equivalence margin 0.67 to 1.50 fixed in advance; TCGA-BRCA contributed few events (12 in the discordant group)"],
  ["10", "Statistical methods, model assumptions, missing data", "Partly", "Methods; Online Resource 1 (frozen amendments). Patients with missing endpoint data were excluded (Online Resource 4, Table S1)"],
@@ -490,6 +497,29 @@ s.append(Paragraph("Registered verdict (GSE25066): NOT TESTED (underpowered); th
                    "The exploratory rerun changes only the ER field and was run after the registered result was known; it has no confirmatory weight. "
                    "P2 uses 15 of 18 genes on the Affymetrix U133A array; P3 uses 118 of 120. SMC 2018 is secondary and descriptive. "
                    "Intervals from 2,000 bootstrap resamples; slopes from 200 resamples at each of seven luminal B shares.", SMALL))
+
+# Post hoc: score units (Error Log 5)
+s.append(Spacer(1, 8))
+s.append(Paragraph("<b>Table S22. Post hoc (Error Log 5): kappa-optimal cut-off in score units</b>", H2))
+_p1 = pd.read_csv("/home/claude/work/posthoc/PH1_scale_check.csv"); _p2 = pd.read_csv("/home/claude/work/posthoc/PH2_score_units_P2_P3.csv")
+_lab = {"TCGA": "TCGA-BRCA", "METABRIC": "METABRIC", "SCAN-B": "SCAN-B", "GSE81538": "GSE81538"}
+rows = []
+for c in ["TCGA", "METABRIC", "SCAN-B", "GSE81538"]:
+    for sc, nm in [("P2", "18-gene"), ("P1", "MKI67"), ("P3", "P3")]:
+        src = _p1 if sc == "P1" else _p2
+        r = src[(src.cohort == c) & (src.score == sc)]
+        if r.empty: continue
+        r = r.iloc[0]
+        pct = r.kopt_pct_luminal; slp = r.slope_pct_luminal if sc == "P1" else r.slope_pct; sq = r.slope_qA_raw if sc == "P1" else r.slope_qA
+        fx = r.fixed_cutoff_slope if sc == "P1" else r.fixed_slope; q15 = r.qA_at15 if sc == "P1" else r.qA_15; q45 = r.qA_at45 if sc == "P1" else r.qA_45
+        exp_ = r.expected_luminal if sc == "P1" else r.expected
+        rows.append([_lab[c], nm, f"{pct:.1f}", f"{exp_:.1f}", f"{r.kopt_qA:.1f}", f"{slp:.2f}", f"{fx:.2f}", f"{sq:.2f}", f"{q15:.0f} to {q45:.0f}"])
+s.append(tbl(["Cohort", "Score", "κ optimum, percentile of luminal set", "100 minus luminal B share", "κ optimum, luminal A quantile", "Percentile slope", "Slope of a fixed cut-off", "Slope in score units", "Luminal A quantile at shares 15% to 45%"],
+             rows, [2.0*cm, 1.4*cm, 2.0*cm, 1.8*cm, 1.8*cm, 1.5*cm, 1.6*cm, 1.6*cm, 2.3*cm], merge_cols=(0,)))
+s.append(Paragraph("Not pre-specified. Resampling as in Amendment 6 (200 resamples at each of seven luminal B shares; seed 20261016); percentile slopes differ slightly from the registered values because the random draws differ. "
+                   "The slope of a fixed cut-off is F_A(c) minus F_B(c) at the observed optimum c, the change in its percentile per point of luminal B share when c does not move. "
+                   "Score-unit slopes express the kappa-optimal cut-off as a quantile of the full luminal A distribution. P3 computed with the Amendment 8 scoring functions unchanged. "
+                   "Scripts ph1_scale_check.py and ph2_score_units_P3.py.", SMALL))
 
 # Figures
 s.append(PageBreak())
