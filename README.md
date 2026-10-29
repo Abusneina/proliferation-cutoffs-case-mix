@@ -2,7 +2,7 @@
 
 Code, frozen protocol documents, error logs, result tables and literature-review records for the manuscript:
 
-> Abusneina AM. Agreement-optimized gene-expression proliferation cut-offs for luminal A versus luminal B breast cancer inherit the case mix of their derivation population: an analysis of six cohorts. Manuscript submitted to *Breast Cancer Research and Treatment*.
+> Abusneina AM. Agreement-optimized proliferation cut-offs for luminal A versus luminal B breast cancer depend on case mix: an analysis of six cohorts. Manuscript submitted to *Breast Cancer*.
 
 Author: Abdelmuhsen M. Abusneina, Department of Molecular Diagnostics, Faculty of Biomedical Sciences, University of Benghazi, Libya. ORCID [0000-0001-9909-5588](https://orcid.org/0000-0001-9909-5588). Contact: abdelmuhsen.abusneina@uob.edu.ly
 
@@ -94,3 +94,7 @@ Code: MIT License (see `LICENSE`). Documents, tables and figures: CC BY 4.0.
 ## Citation
 
 See `CITATION.cff`. Please cite the article once published.
+
+
+## Release 1.4 (29 October 2026)
+Adds post hoc analyses PH3 (posthoc/): score-unit and fixed-reference slopes in all six cohorts, GSE81538 Ki-67 tie rules and mid-rank percentiles, and the Ki-67 translation at luminal A quantiles. These were run after all registered results were known and are not registered. Also adds the composite-figure script (code/s26_composite_figures.py) and the updated Online Resource builder.

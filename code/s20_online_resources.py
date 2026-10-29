@@ -1,5 +1,5 @@
 """
-s20_online_resources.py  Builds Online Resources 1-4 (A4 PDFs) for the BCRT submission.
+s20_online_resources.py  Builds Online Resources 1-4 (A4 PDFs) for the Breast Cancer submission.
 Colour theme: burgundy and ochre on warm grey (no blue).
 Usage: python3 s20_online_resources.py <stamp YYYY-MM-DD_HHMM>
 """
@@ -111,13 +111,13 @@ def ci(hr, lo, hi, n=2):
 def pv(p):
     return "" if pd.isna(p) else ("<0.001" if p < 0.001 else f"{p:.3f}")
 
-TITLE = ("Agreement-optimized gene-expression proliferation cut-offs for luminal A versus luminal B breast cancer inherit the case mix of their derivation population: an analysis of six cohorts")
+TITLE = ("Agreement-optimized proliferation cut-offs for luminal A versus luminal B breast cancer depend on case mix: an analysis of six cohorts")
 AUTH = "Abdelmuhsen M. Abusneina, University of Benghazi, Benghazi, Libya. ORCID 0000-0001-9909-5588"
 
 # =========================================================== ESM 1: governance record
 log("ESM 1")
 s = head(1, "Governance record: frozen documents, amendments and error logs",
-         f"Article: {esc(TITLE)}. Author: {AUTH}. Journal: Breast Cancer Research and Treatment.")
+         f"Article: {esc(TITLE)}. Author: {AUTH}. Journal: Breast Cancer.")
 s.append(Paragraph(
     "This file reproduces, without editing, every document that was frozen before an analysis was run, the error logs, and the freeze records. "
     "Times are UTC+2. Times in the table are file-save times. The times written in the names and headers of the 13 October documents were entered by hand "
@@ -144,6 +144,7 @@ tl = [
  ["15 Oct 2026", "18:27; v2 19:02", "Error Log 3", "Stated freeze times differ from save times (13 Oct documents)", "…1827_ERROR-LOG-3_…txt; …1902_ERROR-LOG-3_…_v2.txt"],
  ["", "19:38", "Amendment 10 and frozen script", "Field names, labels and gene coverage only; posted 20:19 in osf.io/cwkd9; run 20:22; registered 20:30 (osf.io/db7a8)", "…1938_AMENDMENT-10_…_FROZEN.txt; …1938_s23_amendment10_FROZEN.py"],
  ["", "20:23", "Error Log 4", "Amendment 10 ER field covers 310 of 508 samples; registered verdict not tested", "…2023_ERROR-LOG-4_Amendment-10-ER-field-covers-310-of-508.txt"],
+ ["28 Oct 2026", "16:45 to 16:48", "Post hoc analyses PH3 (not registered)", "Written after all registered results were known and after a journal decision on an earlier version; scripts and results below", "posthoc/ph3a_independent_cohorts_and_pooled.py; posthoc/ph3b_ki67_ties_translation.py"],
  ["16 Oct 2026", "11:53; updated 11:57", "Error Log 5", "Percentile scale of the resampling slope includes a fixed-cut-off component; Youden fixed by design; denominator of observed optima", "…1153_ERROR-LOG-5_percentile-scale-and-denominator.txt"],
 ]
 s.append(tbl(["Date", "Time", "Document", "State of knowledge when frozen", "File"], tl,
@@ -173,6 +174,15 @@ order = ["2026-10-13_1515_proliferation_gene_list_FROZEN.txt", "2026-10-13_1545_
 for i, f in enumerate(order):
     log(f"  ESM 1 document {i+1}/{len(order)}: {f[:60]}")
     s.append(PageBreak()); s += verbatim(f"{P}/{f}")
+# ---- post hoc PH3 record (28 Oct 2026)
+s.append(PageBreak())
+s.append(Paragraph("<b>Post hoc analyses PH3 (28 October 2026; not registered)</b>", H2))
+s.append(Paragraph("These analyses were run after all registered results were known, after the Error Log 5 analyses (PH1 and PH2) and after the journal decision on an earlier version of the article. "
+    "They carry no registered criterion and are labeled post hoc in the article. Scripts: ph3a_independent_cohorts_and_pooled.py (score-unit slopes and the pooled-reference slope in all six cohorts; scoring and loading functions imported unchanged from the frozen scripts of Amendments 8 and 10; 200 resamples at each of seven luminal B shares; seed 20261028) and ph3b_ki67_ties_translation.py (GSE81538 sample metadata only; no expression values). "
+    "Results are in Online Resource 4, Table S23.", BODY))
+s.append(Paragraph("Four questions were asked. (1) Does the score-unit slope hold in GSE25066 (exploratory rerun with the ER field recorded for all 508 samples, Error Log 4) and SMC 2018? (2) Does the slope change when the kappa optimum is expressed against the original luminal set, a fixed reference distribution? "
+    "(3) Does the registered Ki-67 slope of 0.62 depend on how ties in the kappa optimum are broken (lowest, middle or highest tied value) or on how percentiles are defined (inclusive or mid-rank), and what would a threshold fixed at 15% show on the same scale? "
+    "(4) How many Ki-67 points correspond to one luminal A quantile point, read from the GSE81538 luminal A distribution? The fourth is an illustration only and has not been confirmed for Ki-67.", BODY))
 build("ESM_1_governance-record", s, "Online Resource 1: governance record")
 
 # =========================================================== ESM 2: REMARK
@@ -183,21 +193,21 @@ s = head(2, "REMARK checklist",
          "so items that concern prognostic modeling apply only to the secondary outcome analysis of the discordant group. "
          "Section names refer to the article.")
 rem = [
- ["1", "Marker, objectives, pre-specified hypotheses", "Reported", "Introduction; Methods, Cut-off sweep and case mix, and Registered test in GSE81538 (C1 to C3); Online Resource 1"],
- ["2", "Patient characteristics, source, inclusion and exclusion", "Reported", "Methods, Cohorts and scores; Table 1; Online Resource 4, Table S1 (attrition)"],
- ["3", "Treatments received and how chosen", "Partly", "Endocrine therapy and chemotherapy (received or not) for METABRIC and SCAN-B, radiotherapy for METABRIC and TCGA-BRCA; cohort percentages in Results, Cohorts. Treatment was not modeled (Methods; Discussion, limitations)"],
- ["4", "Biological material, preservation, storage", "Reported by reference", "Methods, Cohorts and scores, and the cited source publications [20 to 25]"],
- ["5", "Assay method, protocol, QC, scoring, blinding", "Reported by reference", "Methods, Cohorts and scores, and Online Resource 1 (platform, transformation); GSE81538 Ki-67 scoring in Methods, Registered test in GSE81538. Interlaboratory reproducibility was not assessed"],
- ["6", "Case selection, prospective or retrospective, period, median follow-up", "Partly", "Retrospective analysis of public data (Methods, Design and reporting). Accrual period and median follow-up come from the source publications and are not re-stated"],
- ["7", "Clinical endpoints", "Reported", "Methods, Patients whose label depends on the cut-off (PFI, DSS as death from breast cancer recorded in vital status, OS); overall survival in all three cohorts as a secondary common endpoint (Amendment 9)"],
- ["8", "Candidate variables considered", "Reported", "Cox models adjusted for age and stage or age, tumor size and nodal group; grade as sensitivity analysis (Methods)"],
+ ["1", "Marker, objectives, pre-specified hypotheses", "Reported", "Introduction; Materials and Methods, Cut-off sweep and case mix, and Registered test in GSE81538 (C1 to C3); Online Resource 1"],
+ ["2", "Patient characteristics, source, inclusion and exclusion", "Reported", "Materials and Methods, Cohorts and scores; Table 1; Online Resource 4, Table S1 (attrition)"],
+ ["3", "Treatments received and how chosen", "Partly", "Endocrine therapy and chemotherapy (received or not) for METABRIC and SCAN-B, radiotherapy for METABRIC and TCGA-BRCA; cohort percentages in Results, Cohorts. Treatment was not modeled (Materials and Methods; Discussion, limitations)"],
+ ["4", "Biological material, preservation, storage", "Reported by reference", "Materials and Methods, Cohorts and scores, and the cited source publications [20 to 25]"],
+ ["5", "Assay method, protocol, QC, scoring, blinding", "Reported by reference", "Materials and Methods, Cohorts and scores, and Online Resource 1 (platform, transformation); GSE81538 Ki-67 scoring in Materials and Methods, Registered test in GSE81538. Interlaboratory reproducibility was not assessed"],
+ ["6", "Case selection, prospective or retrospective, period, median follow-up", "Partly", "Retrospective analysis of public data (Materials and Methods, Design and reporting). Accrual period and median follow-up come from the source publications and are not re-stated"],
+ ["7", "Clinical endpoints", "Reported", "Materials and Methods, Patients whose label depends on the cut-off (PFI, DSS as death from breast cancer recorded in vital status, OS); overall survival in all three cohorts as a secondary common endpoint (Amendment 9)"],
+ ["8", "Candidate variables considered", "Reported", "Cox models adjusted for age and stage or age, tumor size and nodal group; grade as sensitivity analysis (Materials and Methods)"],
  ["9", "Sample size rationale", "Reported", "No sample size calculation. Equivalence margin 0.67 to 1.50 fixed in advance; TCGA-BRCA contributed few events (12 in the discordant group)"],
- ["10", "Statistical methods, model assumptions, missing data", "Partly", "Methods; Online Resource 1 (frozen amendments). Patients with missing endpoint data were excluded (Online Resource 4, Table S1)"],
+ ["10", "Statistical methods, model assumptions, missing data", "Partly", "Materials and Methods; Online Resource 1 (frozen amendments). Patients with missing endpoint data were excluded (Online Resource 4, Table S1)"],
  ["11", "Pre-specified versus exploratory", "Reported", "Methods (post hoc discovery stated; resampling test and fourth-cohort predictions pre-specified); Table 4; Exploratory simulation; gene-disjoint scores and common endpoint (Amendments 8 and 9); Online Resource 4 (post hoc analyses labeled)"],
  ["12", "Flow of patients, numbers and events per subgroup", "Reported", "Online Resource 4, Table S1; Results, Cohorts; Table 1; hazard-ratio table with events in Online Resource 4"],
  ["13", "Demographics, prognostic variables, marker distribution, missing values", "Partly", "Table 1 gives cohort sizes, subtype shares and receptor status. Age and stage tabulations are not reproduced"],
- ["14", "Relation of marker to standard prognostic variables", "Not reported", "Not a focus of the study; grade is addressed only as a sensitivity covariate (Methods)"],
- ["15", "Univariable analysis with Kaplan-Meier", "Reported", "Fig. 3 (METABRIC, TCGA-BRCA); Online Resource 4, Fig. S2 (SCAN-B)"],
+ ["14", "Relation of marker to standard prognostic variables", "Not reported", "Not a focus of the study; grade is addressed only as a sensitivity covariate (Materials and Methods)"],
+ ["15", "Univariable analysis with Kaplan-Meier", "Reported", "Fig. 2 (METABRIC, TCGA-BRCA, SCAN-B)"],
  ["16", "Multivariable analysis with estimates and confidence intervals", "Partly", "Hazard ratios for the group contrasts with 95% CI (Results; Online Resource 4). Coefficients of covariates are not tabulated"],
  ["17", "Marker with standard prognostic variables, regardless of significance", "Reported", "Primary Cox models include age and stage (or size and nodal group); grade-adjusted version reported"],
  ["18", "Further investigations: assumptions, sensitivity, validation", "Reported", "Fourth-cohort test; ER 2 to 3 sensitivity; single pathologist readings; simulations; bootstrap intervals (Results; Online Resource 4)"],
@@ -525,6 +535,31 @@ s.append(Paragraph("Not pre-specified. Resampling as in Amendment 6 (200 resampl
                    "The slope of a fixed cut-off is F_A(c) minus F_B(c) at the observed optimum c, the change in its percentile per point of luminal B share when c does not move. "
                    "Score-unit slopes express the kappa-optimal cut-off as a quantile of the full luminal A distribution. P3 computed with the Amendment 8 scoring functions unchanged. "
                    "Scripts ph1_scale_check.py and ph2_score_units_P3.py.", SMALL))
+
+# Post hoc PH3 (28 Oct 2026)
+s.append(PageBreak())
+s.append(Paragraph("<b>Table S23. Post hoc (PH3, 28 October 2026): score-unit and fixed-reference slopes in six cohorts</b>", H2))
+_q = pd.read_csv("/home/claude/work/posthoc/PH3a_independent_and_pooled.csv")
+_lab2 = {"TCGA": "TCGA-BRCA", "METABRIC": "METABRIC", "SCAN-B": "SCAN-B", "GSE81538": "GSE81538", "GSE25066": "GSE25066 (exploratory)", "SMC2018": "SMC 2018 (exploratory)"}
+rows = []
+for c in ["TCGA", "METABRIC", "SCAN-B", "GSE81538", "GSE25066", "SMC2018"]:
+    for sc, nm in [("P2", "18-gene"), ("P3", "P3")]:
+        r = _q[(_q.cohort == c) & (_q.score == sc)].iloc[0]
+        rows.append([_lab2[c], nm, f"{int(r.n_lumA)}; {int(r.n_lumB)}", f"{r.lumB_share:.1f}", f"{r.slope_pct_resampled:.2f}", f"{r.slope_qA:.2f}", f"{r.slope_pooled_original_luminal:.2f}", f"{r.qA_at_15:.0f} to {r.qA_at_45:.0f}"])
+s.append(tbl(["Cohort", "Score", "Luminal A; luminal B (n)", "Luminal B share (%)", "Percentile slope (resampled set)", "Slope in score units", "Slope against original luminal set", "Luminal A quantile at shares 15% to 45%"],
+             rows, [3.0*cm, 1.4*cm, 2.2*cm, 1.7*cm, 2.0*cm, 1.7*cm, 2.2*cm, 2.4*cm], merge_cols=(0,)))
+s.append(Paragraph("Not pre-specified. Slopes are of the median optimum across 200 resamples on 100 minus the imposed luminal B share (15% to 45%). The slope against the original luminal set is zero if the cut-off does not move. "
+                   "Main-cohort score-unit slopes for the 18-gene score in this run (0.21 to 0.36) agree within 0.02 with Table S22 (0.20 to 0.37), the values reported in the article. Intervals are not given because the analysis is descriptive. Script ph3a_independent_cohorts_and_pooled.py.", SMALL))
+s.append(Spacer(1, 8))
+s.append(Paragraph("<b>Table S24. Post hoc (PH3): GSE81538 Ki-67 slope by tie rule and percentile definition, and Ki-67 values at luminal A quantiles</b>", H2))
+_t = pd.read_csv("/home/claude/work/posthoc/PH3b_ki67_tie_rules.csv"); _k = pd.read_csv("/home/claude/work/posthoc/PH3b_ki67_luminalA_quantiles.csv")
+rows = [[r.tie_rule.capitalize(), "Inclusive" if r.percentile == "inclusive" else "Mid-rank", f"{r.slope_pct_on_100_minus_share:.2f}", f"{r.thr_at_15:.0f}; {r.thr_at_45:.0f}"] for r in _t.itertuples()]
+rows += [["Threshold fixed at 15%", "Inclusive", "0.56", "15; 15"], ["", "Mid-rank", "0.52", "15; 15"]]
+s.append(tbl(["Tie rule for the kappa optimum", "Percentile definition", "Slope on 100 minus share", "Median threshold at 15%; 45% share (Ki-67, %)"], rows, [5.0*cm, 3.5*cm, 3.5*cm, 4.6*cm], merge_cols=(0,)))
+s.append(Spacer(1, 4))
+s.append(tbl(["Luminal A quantile", "Consensus Ki-67 (%)"], [[f"{int(r.luminal_A_quantile)}th", f"{int(r.Ki67_value)}"] for r in _k.itertuples()], [4.0*cm, 4.0*cm]))
+s.append(Paragraph("Not pre-specified. 232 luminal tumors (147 luminal A, 85 luminal B). The registered tie rule was the lowest tied value with inclusive percentiles (slope 0.62 in the registered run, 0.61 here because the random draws differ). Quantiles are of the luminal A distribution (n = 147), taking the lower value. "
+                   "The translation from quantile points to Ki-67 points is an illustration and is not confirmed for immunohistochemistry. Script ph3b_ki67_ties_translation.py.", SMALL))
 
 # Figures
 s.append(PageBreak())

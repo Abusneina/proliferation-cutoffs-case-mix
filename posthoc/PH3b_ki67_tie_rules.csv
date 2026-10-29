@@ -1,0 +1,7 @@
+tie_rule,percentile,slope_pct_on_100_minus_share,thr_at_15,thr_at_45,slope_threshold_points_per_share_point
+lowest,inclusive,0.61,15.0,15.0,0.0
+lowest,midrank,0.59,15.0,15.0,0.0
+middle,inclusive,0.61,15.0,15.0,0.0
+middle,midrank,0.59,15.0,15.0,0.0
+highest,inclusive,0.61,15.0,15.0,0.0
+highest,midrank,0.59,15.0,15.0,0.0
