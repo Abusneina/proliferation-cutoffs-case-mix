@@ -311,7 +311,8 @@ STATEMENTS = [
 ("Data availability", "All cohort data are public: TCGA-BRCA PanCancer Atlas, METABRIC and SMC 2018 through cBioPortal "
  "(https://www.cbioportal.org), and SCAN-B and GSE25066 through the Gene Expression Omnibus (GSE96058, GSE81538 and "
  "GSE25066). The analysis code, frozen protocol documents, error logs, result tables and literature-review records are "
- "available at https://github.com/Abusneina/proliferation-cutoffs-case-mix. The literature protocol is registered at "
+ "available at https://github.com/Abusneina/proliferation-cutoffs-case-mix (release v2.0) and archived at Zenodo "
+ "(https://doi.org/10.5281/zenodo.23926714). The literature protocol is registered at "
  "https://osf.io/pc9wm, Amendment 7 at https://osf.io/p5hb7, Amendments 8 and 9 at https://osf.io/su2hg, Amendment 10 at "
  "https://osf.io/db7a8 and Amendment 11 at https://osf.io/vhg4s. All frozen documents, error logs and freeze records are "
  "posted at https://osf.io/cwkd9."),
