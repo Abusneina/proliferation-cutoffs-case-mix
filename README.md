@@ -1,8 +1,10 @@
-# Agreement-optimized gene-expression proliferation cut-offs inherit the case mix of their derivation population
+# Case mix of the derivation series and Ki-67 cut-offs for luminal A versus luminal B breast cancer
 
 Code, frozen protocol documents, error logs, result tables and literature-review records for the manuscript:
 
-> Abusneina AM. Agreement-optimized proliferation cut-offs for luminal A versus luminal B breast cancer depend on case mix: an analysis of six cohorts. Manuscript submitted to *Breast Cancer*.
+> Abusneina AM. Case mix of the derivation series and Ki-67 cut-offs for luminal A versus luminal B breast cancer: a predictive model and a correction. Manuscript prepared for *Modern Pathology*.
+>
+> Earlier versions (v1.x) accompanied: Agreement-optimized proliferation cut-offs for luminal A versus luminal B breast cancer depend on case mix: an analysis of six cohorts.
 
 Author: Abdelmuhsen M. Abusneina, Department of Molecular Diagnostics, Faculty of Biomedical Sciences, University of Benghazi, Libya. ORCID [0000-0001-9909-5588](https://orcid.org/0000-0001-9909-5588). Contact: abdelmuhsen.abusneina@uob.edu.ly
 
@@ -14,6 +16,7 @@ Author: Abdelmuhsen M. Abusneina, Department of Molecular Diagnostics, Faculty o
 | Amendment 7 (GSE81538, pathologist-scored Ki-67) | https://osf.io/p5hb7 |
 | Amendments 8 and 9 (gene-disjoint score; overall survival) | https://osf.io/su2hg (DOI 10.17605/OSF.IO/SU2HG) |
 | Amendment 10 (independent cohorts GSE25066 and SMC 2018) | https://osf.io/db7a8 (DOI 10.17605/OSF.IO/DB7A8) |
+| Amendment 11 (case mix against sampling, derivation criteria, relabelling, binormal model; Ki-67 arm) | https://osf.io/vhg4s (submitted 2026-11-03 18:55 UTC+2) |
 | All frozen documents, error logs and freeze records | https://osf.io/cwkd9 |
 
 The timing of every frozen document, and what was known when each was frozen, is in Table 4 of the manuscript and in `protocol/`. The gene list and Amendments 2 to 6 were posted on OSF after their analyses; their timing rests on the author's file records (see Error Log 3).
@@ -30,6 +33,9 @@ The timing of every frozen document, and what was known when each was frozen, is
 | `litreview/` | Search logs, the 183 retrieved records, screening workbooks, decisions of both reviewers, full-text first-pass extraction, citation-search logs, protocol deviation 1, the stage 2 comparison and the check of the Holm et al. 2021 cut-off rule |
 | `figures/` | Manuscript and supplementary figures (600 dpi) |
 | `data/` | TCGA-BRCA clinical files as downloaded from cBioPortal (public) |
+| `manuscript/` | Manuscript source (content.py, build.py, build_docx.js) and the built .docx |
+| `online_resources_docx/` | Online Resources 1 to 4 as Word files (built by s30) |
+| `litreview/recovered/` | One literature file recovered from the submitted Online Resource 3 (the original was not archived) |
 
 ## Scripts, in run order
 
@@ -59,6 +65,12 @@ The timing of every frozen document, and what was known when each was frozen, is
 | `posthoc/ph1_scale_check.py` | Post hoc (Error Log 5): observed optima as percentiles of the luminal set; resampling slope in score units and the slope of a fixed cut-off (P1, P2) | Results; Table 2; Online Resource 4, Table S22 |
 | `posthoc/ph2_score_units_P3.py` | Post hoc (Error Log 5): the same for P3 and for GSE81538, using the Amendment 8 scoring functions unchanged | Results; Online Resource 4, Table S22 |
 | `s25_prisma_flow.py` | PRISMA 2020 flow diagram for the literature component (Fig. S-L1); counts taken from the search and citation-search logs | Online Resource 3 |
+| `s27_amendment11.py` | Amendment 11, frozen script (SHA-256 aa17d477f9c9bf4d44dbd87244d95be9a4ffd793157bf7a709429f3da6f47fad); `--dryrun` permutes labels | Results: movement with case mix, case mix against sampling, transfer, relabelling; Tables 2 and 4 |
+| `s28_amendment11_ki67_arm.py` | Amendment 11 conditional Ki-67 arm (GSE81538), importing s27 unchanged; hash in Error Log 6 | Results: pathologist-scored Ki-67; Table 4 |
+| `s29_fig4_amendment11.py` | Figure 4 (600 dpi) | Fig. 4 |
+| `s30_online_resources_docx.py` | Online Resources 1 to 4 as Word files (runs the s20 table code through a .docx layer and adds Amendment 11) | Online Resources |
+
+Scripts s27 to s30 use paths relative to the repository and run as they are (`python3 -I code/s27_amendment11.py`); s28 takes the path to GSE81538_series_matrix.txt.gz as its argument.
 
 Scripts marked exploratory or post hoc were not pre-specified and are labeled as such in the manuscript.
 
