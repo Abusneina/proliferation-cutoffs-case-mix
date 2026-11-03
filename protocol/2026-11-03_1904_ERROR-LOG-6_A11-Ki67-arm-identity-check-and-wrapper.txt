@@ -1,0 +1,13 @@
+ERROR LOG 6  -  AMENDMENT 11 KI-67 ARM: IDENTITY CHECK AND WRAPPER SCRIPT (RECORDED BEFORE THE ARM WAS RUN)
+Recorded: 2026-11-03 19:04 UTC+2 (time read from the system clock). Author: Abdelmuhsen M. Abusneina.
+
+1. The amendment asks for the GSE81538 series matrix "with an MD5 matching the earlier download". No MD5 of
+   that file was recorded at the first download (the README lists MD5 only for the expression file). The file
+   supplied on 2026-11-03 has MD5 8cbbc5832cad22515dd13df7a35904ee. Identity is instead checked by reproducing
+   the Amendment 7 counts (256 eligible; 147 luminal A; 85 luminal B); the arm stops if they differ.
+2. The frozen s27_amendment11.py does not contain the Ki-67 arm. The arm is implemented in
+   code/s28_amendment11_ki67_arm.py, which imports the frozen s27 functions unchanged (hash checked at run time)
+   and adds only parsing and the Amendment 7 eligibility. s28 SHA-256: ca191e16e5a120c5acab590bdd59d71ae0702bb599b9d5665f8606cb36160847 (recorded before the run).
+3. The registered s27 candidate rule (observed values between the 5th and 95th percentiles of the derivation
+   sample) is kept for the arm; Amendment 7 used all distinct values. Fixed before the run.
+4. Nothing from this file was read before this record except what the earlier Amendment 7 analysis reported.
