@@ -1,7 +1,7 @@
 # Manuscript content for Modern Pathology. [@key] tokens are numbered in order of first citation by build.py.
-TITLE = ("Case mix of the derivation series shifts Ki-67 cut-offs for luminal A versus luminal B breast cancer: "
+TITLE = ("Case mix of the derivation series and Ki-67 cut-offs for luminal A versus luminal B breast cancer: "
          "a predictive model and a correction")
-RUNNING = "Case mix shifts Ki-67 cut-offs"
+RUNNING = "Case mix and Ki-67 cut-offs"
 
 ABSTRACT = (
 "Laboratories without multigene assays separate luminal A from luminal B breast cancer with a Ki-67 cut-off, and "
