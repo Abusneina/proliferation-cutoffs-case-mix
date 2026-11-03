@@ -1,0 +1,22 @@
+[    0.0s] Amendment 11 run, mode=REGISTERED, seed=20261103
+[    1.3s] TCGA-BRCA P2 n=150: done
+[    2.5s] TCGA-BRCA P2 n=400: done
+[    4.1s] TCGA-BRCA P2 n=1000: done
+[    5.2s] TCGA-BRCA P1 n=150: done
+[    6.5s] TCGA-BRCA P1 n=400: done
+[    8.0s] TCGA-BRCA P1 n=1000: done
+[    9.3s] METABRIC P2 n=150: done
+[   10.5s] METABRIC P2 n=400: done
+[   12.3s] METABRIC P2 n=1000: done
+[   13.6s] METABRIC P1 n=150: done
+[   15.1s] METABRIC P1 n=400: done
+[   16.9s] METABRIC P1 n=1000: done
+[   18.3s] SCAN-B P2 n=150: done
+[   19.6s] SCAN-B P2 n=400: done
+[   21.0s] SCAN-B P2 n=1000: done
+[   22.2s] SCAN-B P1 n=150: done
+[   23.4s] SCAN-B P1 n=400: done
+[   24.9s] SCAN-B P1 n=1000: done
+[   31.0s] Code check: BK equals YJ in 99.53% of derivations
+[   31.7s] O5 criterion (P2, K and ACC, |model - resampled| <= 0.1 in all cohorts): met
+[   31.7s] done

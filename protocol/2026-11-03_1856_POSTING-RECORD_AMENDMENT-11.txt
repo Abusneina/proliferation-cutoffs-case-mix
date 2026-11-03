@@ -1,0 +1,10 @@
+POSTING RECORD  -  AMENDMENT 11
+Recorded: 2026-11-03 18:56 UTC+2 (time read from the system clock). Author: Abdelmuhsen M. Abusneina.
+
+2026-11-03 18:05  Amendment 11 and s27_amendment11.py frozen (freeze record, SHA-256).
+2026-11-03 18:41  Frozen amendment, frozen script and freeze record uploaded to osf.io/cwkd9 (OSF time stamp).
+2026-11-03 18:45  Same three files uploaded to project osf.io/btxyp (OSF time stamp).
+2026-11-03 18:55  Open-Ended Registration submitted from btxyp: osf.io/vhg4s (OSF time 6:55:09 PM),
+                  public immediately; status at recording: pending registration approval.
+2026-11-03 18:56  Registered run of s27_amendment11.py started (file hash checked against the freeze record).
+GitHub: branch amendment-11-draft, commits 995df80 (draft) and 97043c4 (freeze), pushed before the run.
