@@ -1,0 +1,8 @@
+FREEZE RECORD  -  AMENDMENT 11
+Frozen: 2026-11-03 18:05 UTC+2 (time read from the system clock). Author approval: 2026-11-03 18:05 UTC+2.
+No result of s27_amendment11.py on real PAM50 labels existed at freezing; only the dry run (permuted labels) and synthetic tests had been run.
+
+SHA-256
+083a9f567bc5e4260bccaa75d22c423b478620402a46e1d04d8b158bf7be419b  2026-11-03_1805_AMENDMENT-11_cutoff-variation-criteria-relabelling-model_FROZEN.txt
+aa17d477f9c9bf4d44dbd87244d95be9a4ffd793157bf7a709429f3da6f47fad  2026-11-03_1805_s27_amendment11_FROZEN.py
+aa17d477f9c9bf4d44dbd87244d95be9a4ffd793157bf7a709429f3da6f47fad  ../code/s27_amendment11.py
