@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this material, please cite it as below."
-title: "Agreement-optimized proliferation cut-offs for luminal A versus luminal B breast cancer depend on case mix: code and records"
+title: "Case mix of the derivation series and Ki-67 cut-offs for luminal A versus luminal B breast cancer: code and records"
+version: "2.0"
 authors:
   - family-names: Abusneina
     given-names: Abdelmuhsen M.
@@ -8,4 +9,4 @@ authors:
     affiliation: "Department of Molecular Diagnostics, Faculty of Biomedical Sciences, University of Benghazi, Libya"
 license: MIT
 repository-code: "https://github.com/Abusneina/proliferation-cutoffs-case-mix"
-date-released: 2026-10-29
+date-released: 2026-11-03
