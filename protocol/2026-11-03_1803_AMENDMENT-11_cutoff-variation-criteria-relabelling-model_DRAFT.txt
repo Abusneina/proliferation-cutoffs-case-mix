@@ -1,0 +1,96 @@
+PROTOCOL AMENDMENT 11  -  SOURCES OF VARIATION IN AGREEMENT-DERIVED CUT-OFFS, COMPARISON OF DERIVATION
+CRITERIA, PATIENT-LEVEL RELABELLING AND A BINORMAL MODEL  -  DRAFT
+Drafted: 2026-11-03 18:03 UTC+2 (time read from the system clock). Author: Abdelmuhsen M. Abusneina.
+Status: DRAFT. Becomes binding once frozen with author approval and posted on OSF (osf.io/cwkd9),
+BEFORE the registered run of s27_amendment11.py.
+
+WHY THIS AMENDMENT
+  All earlier results are known (Amendments 2 to 10, post hoc analyses PH1 to PH3, Error Logs 1 to 5).
+  The manuscript shows that a kappa-optimal cut-off moves with the luminal B share, but leaves three
+  questions open. (1) How large is case mix as a source of variation compared with ordinary sampling
+  variation at the sample sizes of published derivation studies (71 to 1,029 tumors)? (2) Does a
+  prevalence-robust criterion give a cut-off that transfers better, and at what cost in agreement?
+  (3) How many patients change label when the derivation share changes across the published range
+  (27.6% to 62.8% luminal B)? A binormal model is added to test whether the movement can be predicted
+  from the separation of the two subtypes alone. These analyses were conceived after all earlier
+  results were known; registration fixes their specification before their own results are seen.
+
+WHAT HAS BEEN LOOKED AT
+  results/cohort_tcga.csv, cohort_metabric.csv, cohort_scanb.csv: column names, and the first rows of
+  each file printed while checking file structure (for SCAN-B this showed P1, P2 and PAM50 for six
+  patients). No summary, slope, threshold or cross-tabulation was computed on real labels.
+  Code tests: (a) a dry run of s27_amendment11.py with PAM50 luminal labels randomly permuted
+  (seed 1; outputs carry the suffix _DRYRUN); (b) synthetic binormal data (luminal A N(0,1),
+  luminal B N(2,1)), on which every rule reproduced its model value within sampling error, the
+  closed-form accuracy cut-off was reproduced, and the binormal fit returned a = 1.998, b = 1.003.
+
+DATA
+  TCGA-BRCA, METABRIC and SCAN-B ER-positive, HER2-negative strata as defined in the manuscript
+  (results/cohort_*.csv, unchanged). Agreement uses PAM50 luminal A and luminal B tumors.
+  Scores: P2 (18-gene) primary; P1 (MKI67) secondary. P3 is not included (per-patient values not
+  stored). Ki-67 immunohistochemistry: see CONDITIONAL ARM.
+
+SCALE
+  Each threshold t is expressed as q_A = 100 x F_A(t), the quantile of the full-cohort PAM50 luminal
+  A distribution (score units; as in PH1).
+
+DERIVATION RULES (applied to each derivation sample)
+  K    maximum Cohen's kappa against PAM50
+  ACC  minimum misclassification (maximum accuracy)
+  PM   proportion matching: lowest threshold calling no more than the sample luminal B share positive
+  YJ   maximum Youden index
+  BK   maximum kappa after weighting luminal A and B 50:50 (equal to YJ analytically; code check)
+  SK   maximum kappa after weighting to the target luminal B share (the full-cohort share)
+  Candidate thresholds: observed values between the 5th and 95th percentiles of the derivation
+  sample; scores above the threshold are luminal B-like; ties go to the lowest threshold.
+
+RESAMPLING DESIGN
+  For each cohort and score: derivation size n in {150, 400, 1000}; imposed luminal B share pi in
+  {15, 25, 35, 45, 55, 65}%; 500 samples per cell, drawn with replacement within subtype from the
+  cohort's luminal tumors (round(n x pi) luminal B). Seed 20261103. The target of transfer is the
+  full cohort luminal set at its observed share; the target optimum of each rule is that rule
+  applied to the full luminal set.
+  Note: TCGA-BRCA has fewer luminal B tumors than some cells require, so those cells repeat tumors
+  heavily; TCGA-BRCA results at n = 1000 and pi >= 45% are flagged.
+
+OUTCOMES (descriptive unless stated)
+  O1  Case-mix slope: slope of the median q_A on pi (15% to 65%) at n = 1000, for each rule.
+  O2  Variance decomposition over pi in {25, 35, 45, 55, 65}% (covers the published range), for each
+      rule and n: SD of q_A in total, from sampling (mean within-pi variance) and from case mix
+      (variance of the pi means); fraction of total variance due to case mix.
+  O3  Transfer error against the target optimum of the same rule: bias and root-mean-square error in
+      q_A points; mean percentage of target luminal tumors whose label differs from the label at the
+      target optimum; mean kappa against PAM50 in the target, with the target-optimal kappa.
+  O4  Relabelling: from the median K thresholds derived at pi = 25% and pi = 65% (n = 1000), the
+      percentage and number of patients in the whole ER+/HER2- stratum, and in the luminal set,
+      whose label differs; in SCAN-B and METABRIC, the percentage of those patients who received
+      chemotherapy (descriptive).
+  O5  Binormal model (registered criterion). Parameters a, b are fitted by least squares of
+      probit(TPR) on probit(FPR) of the full-cohort ROC (FPR and TPR between 0.05 and 0.95). Model
+      q_A of K, ACC, PM and YJ is computed at each pi and its slope taken as in O1.
+      Criterion: for P2, the model slope lies within 0.10 q_A points per point of share of the O1
+      slope for both K and ACC in all three cohorts. If met, the model is reported as adequate for
+      predicting the case-mix effect; if not, the discrepancies are reported and the model is
+      described as approximate.
+  Code check: BK and YJ select the same threshold in at least 99% of derivations; otherwise the
+  discrepancy is reported (expected exceptions are ties).
+
+CONDITIONAL ARM (Ki-67 immunohistochemistry, GSE81538)
+  GEO cannot be reached from the analysis environment. If GSE81538_series_matrix.txt.gz is supplied
+  with an MD5 matching the earlier download, O1 to O3 are run on consensus Ki-67 with n in
+  {150, 232} and the same shares, eligibility and tie rule as Amendment 7, before any other use of
+  the file. If the file is not supplied, the arm is not run and this is stated.
+
+INTERPRETATION RULES FIXED NOW
+  - Movement of K, ACC or PM with pi is expected by construction; the quantities of interest are its
+    size relative to sampling variation (O2), its effect on transfer (O3) and on patients (O4).
+  - YJ cannot move with pi under within-subtype resampling (Error Log 5); its O1 slope is not
+    evidence. Its comparison with K rests on sampling SD (O2) and transfer error and kappa (O3).
+  - No rule is declared best overall. Results are reported for every rule, cohort, score and n.
+  - All analyses are RNA-based; no statement is made about Ki-67 IHC unless the conditional arm runs.
+  - No adjustment for multiple comparisons.
+
+SCRIPT
+  code/s27_amendment11.py, SHA-256 aa17d477f9c9bf4d44dbd87244d95be9a4ffd793157bf7a709429f3da6f47fad
+  (recorded 2026-11-03 18:03 UTC+2). The registered run uses this file unchanged; any change is
+  logged as an error log before the run.
