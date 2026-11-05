@@ -1,0 +1,5 @@
+Kappa-optimal Ki-67 cut-offs fall as the luminal B share of the derivation set rises
+A binormal model predicted the shift within 0.09 quantile points per point of share
+Case mix explained 54% to 65% of cut-off variance in derivation sets of 400 tumors
+Cut-offs derived at 25% and at 65% luminal B relabeled 16% to 18% of patients
+Reweighting to the target prevalence cut transfer error to 3.2-3.9 quantile points
