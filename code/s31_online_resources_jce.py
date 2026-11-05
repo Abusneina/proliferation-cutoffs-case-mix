@@ -119,12 +119,24 @@ def render(doc, items, cell=None):
                         runs(par, ctext(c), 8.5, bold=True, color="FFFFFF"); shade(ce, HEAD_HEX)
                     else:
                         bold = bool(isinstance(c, Paragraph) and c.style.bold) or (j == 0 and fill[0] and start[i])
-                        runs(par, ctext(c) if not repeated[i][j] else T[i][j], 8.5, bold=bold and not repeated[i][j], color="8A8A8A" if repeated[i][j] else None)
+                        if not repeated[i][j]: runs(par, ctext(c), 8.5, bold=bold)
                         if (grp % 2 == 1 and fill[0]) or (not fill[0] and i % 2 == 0): shade(ce, BAND_HEX)
                     if isnum[j] or (i == 0 and isnum[j]): par.alignment = WD_ALIGN_PARAGRAPH.RIGHT
                     if i > 0 and start[i] and fill[0] and i > 1:
                         tcPr = ce._tc.get_or_add_tcPr(); b = OxmlElement("w:tcBorders"); e = OxmlElement("w:top")
                         e.set(qn("w:val"), "single"); e.set(qn("w:sz"), "8"); e.set(qn("w:space"), "0"); e.set(qn("w:color"), "6B6B6B"); b.append(e); tcPr.append(b)
+            from docx.enum.table import WD_ALIGN_VERTICAL
+            for j in (0, 1):
+                i = 1
+                while i < len(T):
+                    if repeated[i][j]:
+                        k = i - 1
+                        while i < len(T) and repeated[i][j]: i += 1
+                        m = t.cell(k, j).merge(t.cell(i - 1, j))
+                        for pp in list(m.paragraphs)[1:]:
+                            if not pp.text.strip(): pp._p.getparent().remove(pp._p)
+                        m.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+                    else: i += 1
             if it.w:
                 for j, w in enumerate(it.w[:ncol]):
                     t.columns[j].width = Cm(w)
