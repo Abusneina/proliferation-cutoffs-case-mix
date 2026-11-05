@@ -7,7 +7,7 @@ import os, re, sys, html, time, glob, textwrap
 import numpy as np, pandas as pd
 import docx
 from docx.shared import Pt, Cm, RGBColor
-from docx.enum.text import WD_BREAK
+from docx.enum.text import WD_BREAK, WD_ALIGN_PARAGRAPH
 from docx.enum.section import WD_ORIENT
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
@@ -15,7 +15,7 @@ from docx.oxml import OxmlElement
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.normpath(os.path.join(HERE, ".."))
 STAMP = sys.argv[1]
 OUTDIR = os.path.join(REPO, "online_resources_jce"); os.makedirs(OUTDIR, exist_ok=True)
-BURG_HEX = "7A2E2E"; FONT = "Times New Roman"
+BURG_HEX = "4E3D7A"; HEAD_HEX = "4E3D7A"; BAND_HEX = "F3F0F8"; RULE_HEX = "D9D5DE"; INK_HEX = "2B2B2B"; FONT = "Times New Roman"
 
 # ------------------------------------------------------------------ layer replacing reportlab
 class ParagraphStyle:
@@ -79,19 +79,58 @@ def render(doc, items, cell=None):
             doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
         elif isinstance(it, Table):
             rows = it.data; ncol = max(len(r) for r in rows)
-            t = doc.add_table(rows=len(rows), cols=ncol); t.style = "Table Grid"
+            ctext = lambda c: c.text if isinstance(c, Paragraph) else ("" if c is None else str(c))
+            plain = lambda c: html.unescape(re.sub(r"</?[^>]+>", "", ctext(c).replace("<br/>", " "))).strip()
+            T = [[plain(r[j]) if j < len(r) else "" for j in range(ncol)] for r in rows]
+            GROUP_HDR = {"Cohort", "Cohort and run", "Cohort, score", "Class", "Date", "Score", "n", "Stage", "Contrast"}
+            fill = [False] * ncol
+            for j in (0, 1):
+                fill[j] = j < ncol and T[0][j] in GROUP_HDR and (j == 0 or T[0][0] in GROUP_HDR)
+            last1 = [T[0][1] and T[1][1] if len(T) > 1 else '']; repeated = [[False] * ncol for _ in T]; start = [True] * len(T)
+            for i in range(1, len(T)):
+                if fill[0] and T[i][0] == "" and not all(c == "" for c in T[i]):
+                    T[i][0] = T[i-1][0]; repeated[i][0] = True; start[i] = False
+                    if fill[1] and T[i][1] == "" and last1[0]: T[i][1] = last1[0]; repeated[i][1] = True
+                if fill[1] and T[i][1] != "" and not repeated[i][1]: last1[0] = T[i][1]
+                if start[i]: last1[0] = T[i][1] if fill[1] else ""
+            numre = re.compile(r"^[\u2212\-+<>\u2264\u2265~]?\s?\d[\d,]*\.?\d*\s?%?(\s?[(\[].*[)\]])?$")
+            isnum = [sum(bool(numre.match(T[i][j])) for i in range(1, len(T)) if T[i][j]) >= 0.6 * max(1, sum(1 for i in range(1, len(T)) if T[i][j])) for j in range(ncol)]
+            t = doc.add_table(rows=len(rows), cols=ncol); t.autofit = False
+            tblPr = t._tbl.tblPr; bd = OxmlElement("w:tblBorders")
+            for side, sz, col in (("top", 12, INK_HEX), ("bottom", 12, INK_HEX), ("insideH", 4, RULE_HEX)):
+                e = OxmlElement("w:" + side); e.set(qn("w:val"), "single"); e.set(qn("w:sz"), str(sz)); e.set(qn("w:space"), "0"); e.set(qn("w:color"), col); bd.append(e)
+            tblPr.append(bd)
+            cm = OxmlElement("w:tblCellMar")
+            for side, w in (("top", 45), ("left", 80), ("bottom", 45), ("right", 80)):
+                e = OxmlElement("w:" + side); e.set(qn("w:w"), str(w)); e.set(qn("w:type"), "dxa"); cm.append(e)
+            tblPr.append(cm)
+            grp = 0
             for i, r in enumerate(rows):
-                for j, c in enumerate(r):
-                    ce = t.cell(i, j); ce.paragraphs[0].text = ""
-                    if isinstance(c, Paragraph):
-                        runs(ce.paragraphs[0], c.text, 8, bold=(i == 0) or c.style.bold, color="FFFFFF" if i == 0 else None)
-                    elif isinstance(c, Image):
-                        ce.paragraphs[0].add_run().add_picture(c.path, width=Cm(c.width))
-                    if i == 0 and isinstance(c, Paragraph) and c.style.name == "CH": shade(ce, BURG_HEX)
+                row = t.rows[i]; trPr = row._tr.get_or_add_trPr()
+                cs = OxmlElement("w:cantSplit"); trPr.append(cs)
+                if i == 0: th = OxmlElement("w:tblHeader"); trPr.append(th)
+                if i > 0 and start[i] and fill[0]: grp += 1
+                for j in range(ncol):
+                    c = r[j] if j < len(r) else None; ce = t.cell(i, j); ce.paragraphs[0].text = ""
+                    par = ce.paragraphs[0]; par.paragraph_format.space_after = Pt(0); par.paragraph_format.space_before = Pt(0)
+                    if isinstance(c, Image):
+                        par.add_run().add_picture(c.path, width=Cm(c.width)); continue
+                    if i == 0:
+                        runs(par, ctext(c), 8.5, bold=True, color="FFFFFF"); shade(ce, HEAD_HEX)
+                    else:
+                        bold = bool(isinstance(c, Paragraph) and c.style.bold) or (j == 0 and fill[0] and start[i])
+                        runs(par, ctext(c) if not repeated[i][j] else T[i][j], 8.5, bold=bold and not repeated[i][j], color="8A8A8A" if repeated[i][j] else None)
+                        if (grp % 2 == 1 and fill[0]) or (not fill[0] and i % 2 == 0): shade(ce, BAND_HEX)
+                    if isnum[j] or (i == 0 and isnum[j]): par.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+                    if i > 0 and start[i] and fill[0] and i > 1:
+                        tcPr = ce._tc.get_or_add_tcPr(); b = OxmlElement("w:tcBorders"); e = OxmlElement("w:top")
+                        e.set(qn("w:val"), "single"); e.set(qn("w:sz"), "8"); e.set(qn("w:space"), "0"); e.set(qn("w:color"), "6B6B6B"); b.append(e); tcPr.append(b)
             if it.w:
                 for j, w in enumerate(it.w[:ncol]):
+                    t.columns[j].width = Cm(w)
                     for rr in t.rows: rr.cells[j].width = Cm(w)
-            doc.add_paragraph()
+                lay = OxmlElement("w:tblLayout"); lay.set(qn("w:type"), "fixed"); tblPr.append(lay)
+            sp = doc.add_paragraph(); sp.paragraph_format.space_after = Pt(4)
 def build(name, story, title):
     d = docx.Document(); s = d.sections[0]
     s.page_width, s.page_height = Cm(21.0), Cm(29.7)
