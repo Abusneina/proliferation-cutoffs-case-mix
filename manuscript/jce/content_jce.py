@@ -70,8 +70,9 @@ BODY = [
 ("p", "This was a retrospective analysis of public cohorts with a supporting review of published studies, reported "
 "following REMARK [@remark2006] (checklist in Online Resource 2). Each analysis was specified in a dated, frozen "
 "amendment to a protocol registered on the Open Science Framework (OSF) before it was run; analyses not specified in "
-"advance are labeled post hoc. The question arose when the first two cohorts were inspected, and the earliest "
-"amendments were posted after their analyses. Amendment 11, which specifies the comparison of criteria, the binormal "
+"advance are labeled post hoc. The question arose when the first two cohorts were inspected; the proliferation gene "
+"list and Amendments 2 to 6 were posted after their analyses, and their timing rests on the author's file records, "
+"whereas Amendments 7 to 10 were posted before theirs. Amendment 11, which specifies the comparison of criteria, the binormal "
 "model and the relabelling analysis reported here, was written after all earlier results were known, then frozen with "
 "its script and registered (osf.io/vhg4s) before it was run. Six error logs record mistakes and their handling. The "
 "full sequence is given in Online Resource 1."),
@@ -103,7 +104,8 @@ BODY = [
 "cut-off and the same criterion applied to the full cohort, with the percentage of tumors labeled differently and the "
 "kappa in the full cohort. Relabelling was the percentage of the stratum labeled differently by the median kappa "
 "cut-offs derived at 25% and at 65% luminal B. An earlier registered analysis measured the movement on a percentile "
-"scale that also moves when the share changes (Error Log 5); it is reported in Online Resource 4."),
+"scale that also moves when the share changes (Error Log 5): its registered slopes of 0.89 to 1.12 included 0.44 to "
+"0.70 that a fixed cut-off would produce, and the score-unit analysis replaces it (Online Resource 4)."),
 ("h2", "Binormal model"),
 ("p", "A binormal receiver operating characteristic model [@metz1978] was fitted to each cohort by least squares of "
 "probit(sensitivity) on probit(1 - specificity) over values between 0.05 and 0.95. The model gives the population "
@@ -210,7 +212,8 @@ BODY = [
 "subtype holds each subtype's score distribution fixed, whereas real series also differ in spectrum [@brenner1997], so "
 "the measured component is the part caused by prevalence alone. The registered test in the further cohorts was not done "
 "because of a specification error, the endpoints differed between cohorts, treatment was not modeled, and too few "
-"published studies qualified for the registered regression."),
+"published studies qualified for the registered regression. The literature search preceded registration, and the "
+"first pass of screening and extraction was assisted by a language model, with a second person checking the values."),
 ("p", "Three practical rules follow. A derivation study should report its criterion, the prevalence of its derivation "
 "set and the cut-off as a quantile of the reference-negative distribution [@remark2006]. A user choosing between "
 "published thresholds should prefer one derived at a prevalence close to its own, or reweight. A threshold intended to "
