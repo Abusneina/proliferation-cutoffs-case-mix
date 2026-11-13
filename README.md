@@ -110,3 +110,11 @@ See `CITATION.cff`. Please cite the article once published.
 
 ## Release 1.4 (29 October 2026)
 Adds post hoc analyses PH3 (posthoc/): score-unit and fixed-reference slopes in all six cohorts, GSE81538 Ki-67 tie rules and mid-rank percentiles, and the Ki-67 translation at luminal A quantiles. These were run after all registered results were known and are not registered. Also adds the composite-figure script (code/s26_composite_figures.py) and the updated Online Resource builder.
+
+## Release 2.1 (13 November 2026)
+Revision for *Cancer Epidemiology*: "Case mix and agreement-optimized proliferation cut-offs for luminal A versus luminal B breast cancer: prevalence, spectrum and transfer".
+- Reproduction: before Amendment 12 was frozen, release v2.0 was rerun from the public data and every deposited table was reproduced exactly (`protocol/2026-11-13_1936_N1_REPRODUCTION-RECORD_v2.0.txt`). The rerun was done in the author's workspace, not by an independent analyst.
+- Amendment 12 (registered at https://osf.io/ezmdn before its run): `code/s31_amendment12.py` (SHA-256 ef134636cfb4bbeae79e4fbc33304ee5e13231d12737df887f23f86c0c90d527), imports `s27` unchanged. Run: `python3 -I code/s31_amendment12.py <GSE81538_series_matrix.txt.gz>`. Outputs `results/A12_*`; results record `results/2026-11-13_2000_AMENDMENT-12_RESULTS.md`.
+- Post hoc: `posthoc/ph5_size_subgroup_score_means.py` (score means by subtype and tumor-size subgroup in SCAN-B).
+- Figures: `code/s32_figures_revision.py` (Figures 1 and 3; Figures 2 and 4 are the former Figures 4 and 3 flattened to RGB). Online Resources 1, 2 and 4: `code/s33_online_resources_revision.py`.
+- Manuscript source: `manuscript/content_ce.py`, `manuscript/build_ce.py`, `manuscript/build_ce.js`.

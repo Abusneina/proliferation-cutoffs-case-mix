@@ -1,0 +1,108 @@
+PROTOCOL AMENDMENT 12  -  ADDITIONAL ANALYSES: TRANSFER BETWEEN NATURAL
+SUBGROUPS, MISSPECIFIED TARGET PREVALENCE, KI-67 PREDICTION IN PERCENTAGE POINTS, BINORMAL FIT,
+VARIANCE SHARE BY RANGE OF SHARES, KI-67 NEAR-OPTIMAL REGION, COHORT CHARACTERISTICS  -  FROZEN
+Drafted: 2026-11-13 18:56 UTC+2; wording revised 2026-11-13 19:36 UTC+2 (time read from the system clock). Author: Abdelmuhsen M. Abusneina.
+Status: FROZEN on the author's approval. Binding once posted on OSF (osf.io/cwkd9) and registered,
+BEFORE the registered run of code/s31_amendment12.py.
+
+WHY THIS AMENDMENT
+  All earlier results are known (Amendments 2 to 11, post hoc analyses PH1 to PH4, Error Logs 1 to 6).
+  Four critiques of the manuscript obtained before resubmission (13 November 2026; one written by
+  the AI assistant used for the analyses, three supplied by the author; none is a journal peer
+  review) raised the following points, which these analyses address:
+  (1) a test of target-weighted kappa outside the population whose prevalence it uses; (2) its
+  sensitivity to a wrong estimate of the target prevalence; (3) the Ki-67 implication in percentage
+  points; (4) goodness of fit of the binormal model, including the equal-variance assumption;
+  (5) the dependence of the case-mix share of variance on the range of imposed shares; (6) the
+  stability of the minimum-misclassification Ki-67 optimum; (7) cohort characteristics (REMARK 13).
+  These analyses were conceived after all earlier results and the critiques were known; registration
+  fixes their specification before their own results are seen.
+
+WHAT HAS BEEN LOOKED AT
+  - Column names of results/cohort_tcga.csv, cohort_metabric.csv and cohort_scanb.csv.
+  - In SCAN-B, for the whole ER+/HER2- stratum only (not by PAM50 subtype): counts of NODE, NHG,
+    KI67 status and CHEMO categories, and summaries of AGE_N and SIZE.
+  - The binormal parameters a and b of each RNA cohort and score (computed and deposited under
+    Amendment 11, results/A11_model.csv) and every Amendment 11 and Ki-67-arm result.
+  - Reproduction (N1): the v2.0 release was re-run from the public data on 2026-11-13 and every
+    deposited table was reproduced exactly; this recomputed only results already known.
+  - Code tests of s31_amendment12.py: (a) a dry run with PAM50 luminal labels permuted (seed 1;
+    outputs carry the suffix _DRYRUN); (b) synthetic data with luminal A N(0,1) and luminal B
+    N(1.6,1), including subgroups that differ only in luminal B share and a synthetic GSE81538 file;
+    the predicted accuracy-optimal Ki-67 thresholds (17.0 and 11.9) agreed with the closed-form
+    values (17.4 and 12.1) within sampling error.
+  NOT looked at: the luminal B share of any SCAN-B clinical subgroup; any transfer result between
+  subgroups; any result with a misspecified target share; any binormal fit to Ki-67; any variance
+  share over a subset of shares; the Ki-67 near-optimal regions.
+
+DATA
+  As Amendment 11 (results/cohort_*.csv, unchanged) and, for Ki-67, GSE81538 consensus Ki-67 with
+  the Amendment 7 eligibility (identity check: 256 eligible, 147 luminal A, 85 luminal B; the run of
+  the Ki-67 parts stops otherwise).
+
+RULES, SCALE AND MODEL
+  The rules K, ACC, PM, YJ and SK, the candidate thresholds, the tie rule, the q_A scale and the
+  binormal fit are those of s27_amendment11.py, imported unchanged (SHA-256 checked at run time).
+
+ANALYSES
+  N2  Transfer between natural subgroups (SCAN-B; P2 primary, P1 secondary). Three splits of the
+      luminal tumors, fixed now: tumor size <= 20 mm versus > 20 mm; node-negative (NodeNegative)
+      versus node-positive (1to3 or 4toX; SubMicroMet and missing excluded); age < 50 versus >= 50
+      years. Each split is used in both directions: derive in one subgroup, apply in the other.
+      Derivation: the whole subgroup, and 500 samples of min(400, subgroup size) tumors drawn with
+      replacement from the subgroup (natural case mix and spectrum; no resampling within subtype).
+      Rules: K, ACC, PM, YJ; SK_oracle (weighted to the target subgroup's luminal B share);
+      SK_population (weighted to the luminal B share of all SCAN-B luminal tumors, a stand-in for an
+      estimate from a population-based series of the same region).
+      Outcomes in the target subgroup: RMSE and bias of q_A (target luminal A distribution) against
+      (i) the same rule applied to the whole target subgroup and (ii) the K optimum of the whole
+      target subgroup; percentage of target luminal tumors labeled differently from the K optimum;
+      mean kappa against PAM50; the best attainable kappa.
+      Primary split, fixed rule: the split with the largest absolute difference in luminal B share
+      between its two subgroups (P2).
+  N3  Misspecified target share. Design of Amendment 11 O3 (within-subtype resampling, n = 400,
+      imposed shares 25% to 65%, 500 samples), P2, three cohorts. SK weighted to the true target
+      share plus delta, delta in {-15, -10, -5, 0, +5, +10, +15} points (bounded to 5% to 95%), on
+      the same samples as K. Outcomes: RMSE and bias of q_A against the full-cohort K optimum,
+      percentage relabeled, mean kappa.
+  N4  Ki-67 prediction in percentage points. Binormal fit to consensus Ki-67 (same method as
+      Amendment 11 O5). Model q_A of K, ACC, PM and YJ at luminal B shares of 25% and 65%,
+      converted to Ki-67 percentage points through the luminal A distribution (linear interpolation
+      between order statistics); difference between the two shares. 95% interval from 1,000
+      bootstrap samples drawn within subtype, refitting the model each time.
+  N5  Binormal goodness of fit, each RNA cohort and score and Ki-67: a, b, R^2 of the probit-probit
+      fit and number of points in the fitting window; 95% bootstrap interval of b (500 samples
+      within subtype; RNA only); slopes of the K and ACC model optima with b fixed at 1 (equal
+      variance), next to the free-b slopes and the Amendment 11 resampled slopes.
+  N7  Case-mix share of variance (Amendment 11 O2 definition) recomputed from the deposited
+      Amendment 11 derivations over subsets of imposed shares: {25..65} (registered), {35, 45, 55},
+      {25, 35, 45} and {45, 55, 65}; RNA and Ki-67.
+  N8  Ki-67 near-optimal region. In the full GSE81538 luminal set weighted to luminal B shares of
+      15% to 65%: the accuracy and kappa of every candidate threshold, the maximum, and the lowest
+      and highest thresholds within 0.01 of the maximum.
+  N9  Characteristics of each cohort (age, size, node status, grade, stage, chemotherapy where
+      recorded). No outcome or subtype comparison.
+
+INTERPRETATION RULES FIXED NOW
+  - N2: target-weighted kappa is reported as transferring better between natural subgroups if, in
+    the primary split (P2), its RMSE against the target K optimum is lower than that of K in both
+    directions; stated separately for SK_oracle and SK_population. If the primary split's subgroups
+    differ by less than 5 points in luminal B share, N2 is reported as uninformative about the
+    adjustment. All splits are reported whatever they show.
+  - N3: the tolerance is the largest |delta| such that, for every misspecification up to that size
+    in both directions, SK has a lower RMSE than K in all three cohorts.
+  - N4 is a model prediction, not an observed movement; it is reported with its interval and the
+    number of points behind the fit. If fewer than 3 points lie in the fitting window, N4 is not
+    reported. No statement on Ki-67 is called confirmed.
+  - N5: the equal-variance assumption is described as adequate for a cohort and score if the 95%
+    interval of b includes 1. No pass or fail criterion for the model as a whole.
+  - N8: the movement of the Ki-67 accuracy optimum between 25% and 65% luminal B is described as
+    robust only if the near-optimal regions at those two shares do not overlap.
+  - N7 and N9 are descriptive. No adjustment for multiple comparisons.
+  - All results enter the manuscript or Online Resource 4 whatever they show.
+
+SCRIPT AND RUN
+  code/s31_amendment12.py, SHA-256 ef134636cfb4bbeae79e4fbc33304ee5e13231d12737df887f23f86c0c90d527
+  (recorded 2026-11-13 19:36 UTC+2; differs from the dry-run version only in its header comment). Seed 20261113. Registered run:
+    python3 -I code/s31_amendment12.py <GSE81538_series_matrix.txt.gz>
+  The registered run uses this file unchanged; any change is logged as an error log before the run.

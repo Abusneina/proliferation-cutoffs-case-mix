@@ -1,0 +1,5 @@
+PAM50,size_group,count,mean,std
+LumA,20 mm or less,1114,-0.451,0.66
+LumA,more than 20 mm,374,-0.315,0.634
+LumB,20 mm or less,346,0.84,0.531
+LumB,more than 20 mm,274,0.932,0.589
