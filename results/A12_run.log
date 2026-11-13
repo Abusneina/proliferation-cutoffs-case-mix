@@ -1,0 +1,33 @@
+[    0.0s] Amendment 12 run, mode=REGISTERED, seed=20261113
+[    0.0s] s27 SHA-256 aa17d477f9c9bf4d44dbd87244d95be9a4ffd793157bf7a709429f3da6f47fad
+[    0.0s] s31 SHA-256 ef134636cfb4bbeae79e4fbc33304ee5e13231d12737df887f23f86c0c90d527
+[    0.2s] N2 P2 size_le20_vs_gt20 1to2: n_deriv=1460, n_target=648 done
+[    0.5s] N2 P2 size_le20_vs_gt20 2to1: n_deriv=648, n_target=1460 done
+[    0.6s] N2 P2 node_neg_vs_pos 1to2: n_deriv=1282, n_target=733 done
+[    0.9s] N2 P2 node_neg_vs_pos 2to1: n_deriv=733, n_target=1282 done
+[    1.1s] N2 P2 age_lt50_vs_ge50 1to2: n_deriv=344, n_target=1772 done
+[    1.3s] N2 P2 age_lt50_vs_ge50 2to1: n_deriv=1772, n_target=344 done
+[    1.5s] N2 P1 size_le20_vs_gt20 1to2: n_deriv=1460, n_target=648 done
+[    1.7s] N2 P1 size_le20_vs_gt20 2to1: n_deriv=648, n_target=1460 done
+[    1.9s] N2 P1 node_neg_vs_pos 1to2: n_deriv=1282, n_target=733 done
+[    2.0s] N2 P1 node_neg_vs_pos 2to1: n_deriv=733, n_target=1282 done
+[    2.2s] N2 P1 age_lt50_vs_ge50 1to2: n_deriv=344, n_target=1772 done
+[    2.4s] N2 P1 age_lt50_vs_ge50 2to1: n_deriv=1772, n_target=344 done
+[    2.9s] N2 primary split size_le20_vs_gt20 (gap 18.6 points); SK better than K in both directions: {'oracle': False, 'population': False}
+[    5.6s] N3 TCGA-BRCA: done
+[    8.3s] N3 METABRIC: done
+[   11.2s] N3 SCAN-B: done
+[   11.9s] N3 tolerance (largest |delta| with SK RMSE below K in all cohorts, both directions): 10
+[   12.1s] N5 TCGA-BRCA P2: a=2.201 b=1.225 R2=0.981
+[   12.3s] N5 TCGA-BRCA P1: a=1.516 b=0.972 R2=0.984
+[   12.6s] N5 METABRIC P2: a=1.946 b=1.020 R2=0.997
+[   12.8s] N5 METABRIC P1: a=0.989 b=0.761 R2=0.993
+[   13.1s] N5 SCAN-B P2: a=2.188 b=0.989 R2=0.977
+[   13.3s] N5 SCAN-B P1: a=1.751 b=1.007 R2=0.996
+[   13.4s] GSE81538 identity check: eligible 256, LumA 147, LumB 85 (expected 256, 147, 85)
+[   25.4s] N4 Ki-67 predicted thresholds (%): K_25=20.0, K_65=15.0, K_diff=5.0, ACC_25=25.0, ACC_65=10.0, ACC_diff=15.0, PM_25=20.0, PM_65=15.0, PM_diff=5.0, YJ_25=15.0, YJ_65=15.0, YJ_diff=0.0
+[   25.4s] N8 done
+[   26.2s] N7 RNA: done
+[   26.3s] N7 Ki67: done
+[   26.4s] N9 done
+[   26.4s] done

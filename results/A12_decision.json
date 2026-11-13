@@ -1,0 +1,10 @@
+{
+ "mode": "registered",
+ "primary_split": "size_le20_vs_gt20",
+ "primary_gap_points": 18.585320480297646,
+ "sk_oracle_better_both_directions": false,
+ "sk_population_better_both_directions": false,
+ "n3_tolerance_points": 10,
+ "n4_K_diff_25_minus_65": 5.0,
+ "n4_ACC_diff_25_minus_65": 15.0
+}

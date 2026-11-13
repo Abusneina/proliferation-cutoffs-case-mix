@@ -1,0 +1,11 @@
+N1 REPRODUCTION RECORD (Amendment 12 preparation)
+Date: 2026-11-13, Africa/Tripoli (UTC+2)
+Release: github.com/Abusneina/proliferation-cutoffs-case-mix tag v2.0 (commit bf55716bf171cb2fa0e7a16158c157c1dd6735ab)
+Inputs: expression files with MD5 equal to the README values (TCGA 18d0267b..., METABRIC a62c864b..., SCAN-B 4362d1d9..., GSE81538 a51f0b2b...);
+        METABRIC clinical files and GSE96058 series matrices downloaded again on 2026-11-13; TCGA clinical files from the repository data folder.
+Method: scripts copied to a separate folder with only their path constants changed; s27 and s28 run unchanged (s27 SHA-256 aa17d477...).
+Scripts run: s01, s03, s06, s07, s02, s08, s11, s27, s28.
+Result: cohort files (P1, P2, PAM50, outcomes) identical to the deposited files for all 573, 1,397 and 2,425 patients;
+        A1-A4, D_discordant_zone, SCANB_results, pooled_C1, attrition, E1, E3, A7_resampling, all A11 and A11K outputs
+        identical to the deposited files (maximum absolute difference 0.0); A11 decision identical (model criterion met; BK = YJ in 99.53%).
+Run by: the analysis assistant in the author's workspace; not an independent second analyst.
